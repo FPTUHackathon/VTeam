@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "113902579965",
+    "firebase_url": "https://foodfriends-46c8b.firebaseio.com",
+    "project_id": "foodfriends-46c8b",
+    "storage_bucket": "foodfriends-46c8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113902579965:android:ea9de8e2ff47344a",
+        "android_client_info": {
+          "package_name": "com.vteam.foodfriends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113902579965-tuvnjq38fn1bdk7ap3g8hp4jngkgs8qk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vteam.foodfriends",
+            "certificate_hash": "20798e9a6dc3ff4e1087f8758d6fa604ddd0f128"
+          }
+        },
+        {
+          "client_id": "113902579965-kt1m0rddq4qut0cq2lskdrsfqjiin66u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtIKz4qodOW4r3rqJdqc34X2dZESF26RY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113902579965-kt1m0rddq4qut0cq2lskdrsfqjiin66u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

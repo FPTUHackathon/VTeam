@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Food_Friends" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarImage" destination="16X-gd-puW" id="zNj-ho-hsp"/>
+                <outlet property="headerView" destination="i5M-I6-bcQ" id="ovd-kR-N3w"/>
+                <outlet property="searchBar" destination="dHI-sQ-x5u" id="f2v-8R-T3Y"/>
+                <outlet property="tableView" destination="jZj-lA-c5b" id="DyQ-eL-jNP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="HomeViewController" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-I6-bcQ">
+                    <rect key="frame" x="0.0" y="20" width="375" height="55"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Tìm kiếm địa điểm, dịch vụ" translatesAutoresizingMaskIntoConstraints="NO" id="dHI-sQ-x5u">
+                            <rect key="frame" x="0.0" y="-1" width="305" height="56"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="16X-gd-puW">
+                            <rect key="frame" x="312" y="3" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="16X-gd-puW" secondAttribute="height" multiplier="1:1" id="DXG-VB-Dei"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="16X-gd-puW" firstAttribute="bottom" secondItem="dHI-sQ-x5u" secondAttribute="bottom" constant="-4" id="Eth-dF-Ulh"/>
+                        <constraint firstItem="16X-gd-puW" firstAttribute="top" secondItem="dHI-sQ-x5u" secondAttribute="top" constant="4" id="chN-FV-3Tm"/>
+                        <constraint firstAttribute="trailing" secondItem="16X-gd-puW" secondAttribute="trailing" constant="15" id="eXA-5P-6Ax"/>
+                        <constraint firstItem="dHI-sQ-x5u" firstAttribute="leading" secondItem="i5M-I6-bcQ" secondAttribute="leading" id="pGQ-iQ-Lbz"/>
+                        <constraint firstAttribute="bottom" secondItem="dHI-sQ-x5u" secondAttribute="bottom" id="qux-EB-PRU"/>
+                        <constraint firstAttribute="height" constant="55" id="wUO-Tz-eRj"/>
+                        <constraint firstAttribute="trailing" secondItem="dHI-sQ-x5u" secondAttribute="trailing" constant="70" id="ysj-AD-jOB"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-lA-c5b">
+                    <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="i5M-I6-bcQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4aD-wD-ya2"/>
+                <constraint firstItem="jZj-lA-c5b" firstAttribute="top" secondItem="i5M-I6-bcQ" secondAttribute="bottom" constant="10" id="Rfb-R8-Zly"/>
+                <constraint firstItem="i5M-I6-bcQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="c7h-NC-2HR"/>
+                <constraint firstItem="jZj-lA-c5b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cjZ-WR-34h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jZj-lA-c5b" secondAttribute="bottom" id="moi-jH-1Us"/>
+                <constraint firstItem="i5M-I6-bcQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="oZr-uk-5Py"/>
+                <constraint firstItem="jZj-lA-c5b" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pmD-8j-hia"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatar" width="12" height="12"/>
+    </resources>
+</document>

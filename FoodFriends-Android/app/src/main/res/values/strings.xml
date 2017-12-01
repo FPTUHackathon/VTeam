@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">FoodFriends</string>
+
+
+    <!--Login-->
+    <string name="login_title">LOGIN</string>
+    <string name="register_title">REGISTER</string>
+    <string name="forgot_password_title">Forgot your account?</string>
+    <string name="email_title">   Email</string>
+    <string name="password_title">   Password</string>
+    <string name="sign_in">Signing In</string>
+    <string name="error_login_title">Error</string>
+    <string name="error_login_message">Can\'t login, try again</string>
+    <string name="restaurant_title">Restaurant</string>
+    <string name="comment">Comment</string>
+
+    <!--Register-->
+    <string name="register_message">Please use email to register</string>
+    <string name="email_requirement">Please enter your email</string>
+    <string name="password_requirement">Please enter your password</string>
+    <string name="password_requirement_error">Password enter too short</string>
+    <string name="username_requirement">Please enter your username</string>
+    <string name="phone_requirement">Please enter your phone number</string>
+    <string name="cancel">CANCEL</string>
+    <string name="sign_up">Signing Up</string>
+
+    <!--Intro-->
+    <string name="intro_title_example">Example</string>
+    <string name="intro_content_example">It\'s so hot</string>
+    <string name="next">NEXT</string>
+    <string name="got_it">GOT IT</string>
+    <string name="skip">SKIP</string>
+
+    <!--Detail Restaurant-->
+    <string name="rest_name_example">Bánh mì kẹp chả bò Boody</string>
+    <string name="rest_location_example">263 Trần Đại Nghĩa, Quận Hai Bà Trưng, Hà Nội</string>
+    <string name="rest_open_time_status_example">Đang mở cửa / </string>
+    <string name="rest_open_time_example">9:00 - 22:00</string>
+    <string name="rest_distance_example">2.5km</string>
+    <string name="rest_total_comment_example">25 đánh giá</string>
+    <string name="reserve">Đặt lịch</string>
+    <string name="gallery_title">Ảnh &amp; Video</string>
+    <string name="ranking_title">Xếp hạng &amp; nhận xét</string>
+    <string name="ranking_text">Chạm để xếp hạng</string>
+    <string name="write_comment">Viết nhận xét</string>
+    <string name="comment_title_example">Ăn tạm</string>
+    <string name="comment_author_example">Pew</string>
+    <string name="comment_time_example">13/11/2017 7:13</string>
+    <string name="comment_content_example">Ding Dong…Lễ Hội Mua Sắm Trực Tuyến 01-12 đến rồi các bạn ơi! Cơ Hội Duy Nhất Trong Năm
+⚡Nắng mưa là chuyện của trời
+⚡Ưu Đãi là của Sen Đỏ Tặng Người.</string>
+    <string name="detail_appbar_title">Restaurant</string>
+
+    <string name="follow">Theo dõi</string>
+    <string name="near_me">Chỉ đường</string>
+</resources>
