@@ -11,29 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.login.LoginActivity"/>
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ui.test.TestActivity">
 
         </activity>
+        <activity android:name=".ui.main.MainActivity">
+        </activity>
+        <activity android:name=".ui.test.TestActivity"></activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme" />
         <activity android:name=".ui.introduction.IntroActivity" />
         <activity android:name=".ui.detail_restaurant.DetailActivity" />
-        <activity android:name=".ui.partner.PartnerActivity">
-    </activity>
+        <activity android:name=".ui.partner.PartnerActivity"></activity>
         <activity
             android:name=".ui.messenger.MessengerActivity2"
             android:label="@string/title_activity_messenger2"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.write_comment.WriteCommentActivity"></activity>
+        <activity android:name=".ui.write_comment.WriteCommentActivity" />
+        <activity android:name=".ui.register.RegisterActivity">
+
+        </activity>
     </application>
 
 </manifest>

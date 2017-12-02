@@ -46,5 +46,6 @@ public class WriteCommentPresenter implements WriteCommentContract.Presenter {
         User currentUser = mPreferences.getCurrentUser();
         Comment comment = new Comment(title, currentUser.getName(), date.toString(), content, rating);
         mDatabase.writeComment(resId, list, comment);
+        mView.writeSuccess();
     }
 }

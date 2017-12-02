@@ -35,7 +35,7 @@ public class AppPreferences {
         mEditor.putString(Constant.PREF_USER_NAME, user.getName());
         mEditor.putString(Constant.PREF_USER_PHONE, user.getPhone());
         mEditor.putString(Constant.PREF_USER_DOB, user.getDob());
-        mEditor.putString(Constant.PREF_USER_AVATAR, user.getAvatar());
+//        mEditor.putString(Constant.PREF_USER_AVATAR, user.getAvatar());
         mEditor.putBoolean(Constant.PREF_USER_GENDER, user.isMale());
         mEditor.commit();
     }
@@ -45,8 +45,8 @@ public class AppPreferences {
         String name = mPref.getString(Constant.PREF_USER_NAME, null);
         String phone = mPref.getString(Constant.PREF_USER_PHONE, null);
         String dob = mPref.getString(Constant.PREF_USER_DOB, null);
-        String avatar = mPref.getString(Constant.PREF_USER_AVATAR, null);
+//        String avatar = mPref.getString(Constant.PREF_USER_AVATAR, null);
         boolean isMale = mPref.getBoolean(Constant.PREF_USER_GENDER, true);
-        return new User(email, name, phone, dob, avatar, isMale);
+        return new User(email, name, phone, dob, isMale);
     }
 }

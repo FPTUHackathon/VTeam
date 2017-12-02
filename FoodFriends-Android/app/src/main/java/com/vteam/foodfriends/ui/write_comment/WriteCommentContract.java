@@ -17,6 +17,6 @@ public class WriteCommentContract {
     }
 
     public interface View extends BaseView<Presenter>{
-
+        void writeSuccess();
     }
 }

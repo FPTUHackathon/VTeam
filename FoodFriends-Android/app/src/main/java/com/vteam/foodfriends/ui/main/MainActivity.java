@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
 
     @Override
     public void init() {
-        searchView.setOnQueryTextListener(this);
+//        searchView.setOnQueryTextListener(this);
         ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.rl_content);
         spaceNavigationView();
         searchViewConfig();
@@ -68,9 +68,16 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
     }
 
     private void searchViewConfig() {
-        searchView.onActionViewExpanded();
+//        searchView.onActionViewExpanded();
         searchView.setQueryHint("Thông tin địa điểm, dịch vụ");
         searchView.setIconified(false);
+//        searchView.setIconifiedByDefault(false);
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                return true; // Do not close me
+            }
+        });
         searchView.clearFocus();
 
     }

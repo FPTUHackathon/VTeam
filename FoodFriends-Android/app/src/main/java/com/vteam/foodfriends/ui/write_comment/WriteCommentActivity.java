@@ -51,6 +51,8 @@ public class WriteCommentActivity extends BaseActivity implements WriteCommentCo
         mName.setText(mRestaurant.getName());
         mLocation.setText(mRestaurant.getAddress());
         mPresenter = new WriteCommentPresenter(this, this);
+        mCancel.setOnClickListener(this);
+        mSend.setOnClickListener(this);
 
     }
 
@@ -72,9 +74,14 @@ public class WriteCommentActivity extends BaseActivity implements WriteCommentCo
                     return;
                 }
 
-                mPresenter.writeComment(mRestaurant.getId(), mRestaurant.getComments(), mTitle.getText().toString(), mContent.getText().toString(), (long) mRating.getNumStars());
+                mPresenter.writeComment(mRestaurant.getId(), mRestaurant.getComments(), mTitle.getText().toString(), mContent.getText().toString(), (long) mRating.getRating());
                 break;
             }
         }
+    }
+
+    @Override
+    public void writeSuccess() {
+        finish();
     }
 }

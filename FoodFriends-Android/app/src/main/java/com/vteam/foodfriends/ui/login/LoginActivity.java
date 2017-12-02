@@ -21,6 +21,7 @@ import com.vteam.foodfriends.data.model.User;
 import com.vteam.foodfriends.data.remote.FirebaseUserService;
 import com.vteam.foodfriends.ui.base.BaseActivity;
 import com.vteam.foodfriends.ui.main.MainActivity;
+import com.vteam.foodfriends.ui.register.RegisterActivity;
 import com.vteam.foodfriends.utils.SnackbarUtils;
 
 import butterknife.BindView;
@@ -81,9 +82,15 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
     }
 
     @Override
-    public void loginSuccess(FirebaseUser user) {
-        mPresenter.fetchUserId(user);
+    public void loginSuccess() {
         startActivityWithAnimation(new Intent(this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void startRegisterAcitivity() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivityWithAnimation(intent);
     }
 
     @Override
@@ -147,7 +154,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
                 }
 
                 //Register
-                mPresenter.register(email, password, username, phone);
+//                mPresenter.register(email, password, username, phone);
             }
         });
 
@@ -210,7 +217,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
                 break;
             }
             case R.id.bt_register: {
-                showRegisterDialog();
+//                showRegisterDialog();
+                startRegisterAcitivity();
                 break;
             }
             case R.id.tv_forgot_password: {

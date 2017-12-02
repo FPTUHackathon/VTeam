@@ -44,7 +44,7 @@ public class FirebaseRestaurantService {
         Map<String, Object> commentElement = new HashMap<>();
         commentElement.put("title", comment.getTitle());
         commentElement.put("author", comment.getAuthor());
-        commentElement.put("time", comment.getTitle());
+        commentElement.put("time", comment.getTime());
         commentElement.put("content", comment.getContent());
         commentElement.put("rating", comment.getRating());
         list.add(commentElement);

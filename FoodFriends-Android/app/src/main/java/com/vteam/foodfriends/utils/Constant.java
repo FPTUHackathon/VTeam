@@ -29,5 +29,14 @@ public class Constant {
     public static final String FIREBASE_PRODUCT_CUISINE_URL = "ResUrlAlbums";
     public static final String FIREBASE_PRODUCT_REVIEWS = "LstReview";
 
+    public static final String FIREBASE_USER_ID = "uid";
+    public static final String FIREBASE_USER_EMAIL = "email";
+    public static final String FIREBASE_USER_PASSWORD = "password";
+    public static final String FIREBASE_USER_USERNAME = "username";
+    public static final String FIREBASE_USER_PHONE = "phone";
+    public static final String FIREBASE_USER_DOB = "dob";
+    public static final String FIREBASE_USER_GENDER = "gender";
+    public static final String FIREBASE_USER_AVATAR = "avatar";
+
     public static final String EXTRA_RESTAURANT = "restaurant";
 }

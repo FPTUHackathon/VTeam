@@ -14,13 +14,13 @@ public class LoginContract {
 
     public interface Presenter extends BasePresenter{
         void login(String username, String password);
-        void fetchUserId(FirebaseUser user);
-        void register(String email, String password, String username, String phone);
+//        void register(String email, String password, String username, String phone);
     }
 
     public interface View extends BaseView<Presenter>{
         void startForgotPassword();
-        void loginSuccess(FirebaseUser user);
+        void loginSuccess();
+        void startRegisterAcitivity();
         void showDataUser(User user);
         void registerSuccess();
         void showRegisterDialog();

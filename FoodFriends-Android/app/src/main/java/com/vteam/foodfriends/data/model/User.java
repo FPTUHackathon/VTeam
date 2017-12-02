@@ -32,12 +32,11 @@ public class User {
         this.follows = follows;
     }
 
-    public User(String email, String name, String phone, String dob, String avatar, boolean isMale) {
+    public User(String email, String name, String phone, String dob, boolean isMale) {
         this.email = email;
         this.name = name;
         this.phone = phone;
         this.dob = dob;
-        this.avatar = avatar;
         this.isMale = isMale;
     }
 

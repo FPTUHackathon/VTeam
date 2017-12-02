@@ -25,6 +25,7 @@ import com.vteam.foodfriends.data.model.User;
 import com.vteam.foodfriends.data.preferences.AppPreferences;
 import com.vteam.foodfriends.data.remote.FirebaseUserService;
 import com.vteam.foodfriends.ui.main.MainActivity;
+import com.vteam.foodfriends.utils.Constant;
 
 /**
  * Created by H2PhySicS on 11/27/2017.
@@ -33,17 +34,14 @@ import com.vteam.foodfriends.ui.main.MainActivity;
 public class LoginPresenter implements LoginContract.Presenter{
     private static final String LOG_TAG = LoginPresenter.class.getSimpleName();
     private LoginContract.View mView;
-    private FirebaseAuth mAuth;
     private Context mContext;
     private FirebaseUserService mFirebaseUserService;
     private AppPreferences mPreferences;
-    String id;
 
     public LoginPresenter(Context context, LoginContract.View view, FirebaseUserService mFirebaseUserService){
         this.mView = view;
         this.mContext = context;
         mView.setPresenter(this);
-        mAuth = FirebaseAuth.getInstance();
         this.mFirebaseUserService = mFirebaseUserService;
         mPreferences = new AppPreferences(mContext);
     }
@@ -55,7 +53,7 @@ public class LoginPresenter implements LoginContract.Presenter{
 
     @Override
     public void destroy() {
-        mAuth.signOut();
+
     }
 
     @Override
@@ -68,71 +66,41 @@ public class LoginPresenter implements LoginContract.Presenter{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.e(LOG_TAG, "Login successfully");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            mView.loginSuccess(user);
-                            mView.hideLoadingIndicator();
+                            final FirebaseUser firebaseUser = mFirebaseUserService.getCurrentFirebaseUser();
+                            mFirebaseUserService.getUserWithId(firebaseUser.getUid())
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            QuerySnapshot querySnapshot = task.getResult();
+                                            DocumentSnapshot documentSnapshot = null;
+                                            for (DocumentSnapshot d : querySnapshot){
+                                                documentSnapshot = d;
+                                                break;
+                                            }
+                                            if (documentSnapshot.exists()){
+                                                String name = documentSnapshot.getString(Constant.FIREBASE_USER_USERNAME);
+                                                String dob = documentSnapshot.getString(Constant.FIREBASE_USER_DOB);
+                                                String phone = documentSnapshot.getString(Constant.FIREBASE_USER_PHONE);
+                                                boolean isMale = documentSnapshot.getBoolean(Constant.FIREBASE_USER_GENDER);
+                                                User user = new User(firebaseUser.getEmail(), name, phone, dob, isMale);
+                                                mPreferences.setUser(user);
+                                                mView.loginSuccess();
+                                            }
+                                        }
+                                    });
 
+
+                            mView.hideLoadingIndicator();
                             //Login successfully
                         } else {
                             Log.e(LOG_TAG, "Login failed");
+                            mView.hideLoadingIndicator();
                             mView.showErrorDialog(mContext.getString(R.string.error_login_title));
                         }
                     }
                 });
     }
 
-    @Override
-    public void fetchUserId(FirebaseUser user) {
-        id = mFirebaseUserService.getUid(user);
-        Log.d(LOG_TAG," id"+ id);
-
-        Task<QuerySnapshot> task = mFirebaseUserService.getUserData(id);
-        task.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(DocumentSnapshot document: task.getResult()){
-
-                    }
-                }
-            }
-        });
-    }
 
 
-    @Override
-    public void register(final String email, String password, String username, String phone) {
-        mView.showLoadingIndicator(mContext.getString(R.string.sign_up));
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        mView.hideLoadingIndicator();
-//                        User user = new User();
-//                        user.setEmail(mEmail.getText().toString());
-//                        user.setName(mUsername.getText().toString());
-//                        user.setPassword(mPassword.getText().toString());
-//                        user.setPhone(mPhone.getText().toString());
-//
-//                        //Use email to key
-//                        mUsers.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                .setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                Snackbar.make(mLoginScreen, "Register Succesfully", Snackbar.LENGTH_LONG).show();
-//                            }
-//                        }).addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Snackbar.make(mLoginScreen, "Failed " + e.getMessage(), Snackbar.LENGTH_LONG).show();
-//                            }
-//                        });
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-//                Snackbar.make(mLoginScreen, "Failed " + e.getMessage(), Snackbar.LENGTH_LONG).show();
-            }
-        });
-    }
 }

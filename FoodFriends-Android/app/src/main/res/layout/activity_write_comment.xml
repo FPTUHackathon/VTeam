@@ -55,6 +55,8 @@
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="2"
             style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
             android:layout_centerHorizontal="true"/>
 

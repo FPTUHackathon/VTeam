@@ -13,6 +13,6 @@ public class RegisterContract {
     }
 
     public interface View extends BaseView<Presenter>{
-
+        void startToHome();
     }
 }
