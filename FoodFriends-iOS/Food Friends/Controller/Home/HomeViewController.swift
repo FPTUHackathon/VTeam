@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: UIView!
-    @IBOutlet var avatarImage: UIImageView!
+    @IBOutlet var avatarBtn: UIButton!
     @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -29,8 +30,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func setupView(){
-        avatarImage.layer.cornerRadius = avatarImage.frame.height / 2.0
-        avatarImage.layer.masksToBounds = true
+        avatarBtn.layer.cornerRadius = 18
+        avatarBtn.layer.masksToBounds = true
         
     }
     
@@ -85,5 +86,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.tableView.deselectRow(at: index, animated: true)
         }
     }
-
+    
+    @IBAction func invokeLogOut(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        self.dismiss(animated: true, completion: nil)
+        let vc = LogInViewController(nibName: "LogInViewController", bundle: nil)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 }

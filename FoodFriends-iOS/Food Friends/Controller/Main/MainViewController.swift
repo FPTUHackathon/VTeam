@@ -7,25 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let nib = UINib(nibName: "MainViewController", bundle:nil)
+        let myVC = nib.instantiate(withOwner: self, options: nil).first as? MainViewController
+        
+        //UITabBar.appearance().tintColor = UIColor(hex: "EE712B")
+        
         let homeViewController = HomeViewController(nibName: "HomeViewController",bundle: nil)
-        let tabTwoBarItem1 = UITabBarItem(title: "Home", image: nil, selectedImage: nil)
+        let tabTwoBarItem1 = UITabBarItem(title: nil, image: UIImage(named: "home"), selectedImage: nil)
+        
         homeViewController.tabBarItem = tabTwoBarItem1
         
         let favouriteViewController = FavouriteViewController(nibName: "FavouriteViewController",bundle: nil)
-        let tabTwoBarItem2 = UITabBarItem(title: "favor", image: nil, selectedImage: nil)
+        let tabTwoBarItem2 = UITabBarItem(title: nil, image: UIImage(named: "heart"), selectedImage: nil)
+      //  tabTwoBarItem2.image.
+       // tabTwoBarItem2.appear = UIColor(hex: "#EE712B")
         favouriteViewController.tabBarItem = tabTwoBarItem2
         
-        let controllers = [homeViewController,favouriteViewController]
+        let chatViewController = ChatViewController(nibName: "ChatViewController",bundle: nil)
+        let tabTwoBarItem3 = UITabBarItem(title: nil, image: UIImage(named: "heart"), selectedImage: nil)
+        //tabTwoBarItem3.imageInsets = UIEdgeInsetsMake(12, 10, 11, 11)
+        chatViewController.tabBarItem = tabTwoBarItem3
+        
+        let controllers = [homeViewController,favouriteViewController,chatViewController]
         self.viewControllers = controllers
         //  self.viewControllers = [homeViewController]
         

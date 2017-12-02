@@ -19,8 +19,7 @@ class FoodDetailViewController: UIViewController {
         super.viewDidLoad()
         setupNib()
         setupView()
-        
-        
+      
     }
 
     func setupNib(){

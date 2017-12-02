@@ -6,7 +6,11 @@ target 'Food Friends' do
   use_frameworks!
 
   # Pods for Food Friends
-pod "Macaw", "0.9.1"
+
+pod 'Firebase/Auth'
 pod 'ReadMoreTextView'
+pod 'SkyFloatingLabelTextField', '~> 3.0'
+
+
 
 end
