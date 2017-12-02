@@ -9,6 +9,7 @@
     <color name="black">#000</color>
     <color name="register">#efdcdcdc</color>
     <color name="backgroundhint">#65000000</color>
+    <color name="bg_timer">#D8D8D8</color>
 
     <color name="btnSignIn">#f1ec3333</color>
     <color name="btnRegister">#e9aeabab</color>

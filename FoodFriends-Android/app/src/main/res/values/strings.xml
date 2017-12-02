@@ -53,4 +53,10 @@
 
     <string name="follow">Theo dõi</string>
     <string name="near_me">Chỉ đường</string>
+
+    <!--Partner-->
+    <string name="hour_example">11</string>
+    <string name="minute_example">30</string>
+    <string name="dot">:</string>
+    <string name="ok">OK</string>
 </resources>

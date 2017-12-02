@@ -7,27 +7,34 @@ import java.util.List;
  */
 
 public class Restaurant {
-    private String address, name, photoUrl, timeOpen, timeClose;
-    private int rating, totalReview, discount;
+    private String id, address, name, photoUrl, timeOpen, timeClose;
+    private int totalReview;
+    private long rating;
+    private long[] discounts;
     private double lat, lon;
     private List<String> gallery;
     private List<Cuisine> cuisines;
     private List<Comment> comments;
 
-    public Restaurant(String address, String name, String photoUrl, String timeOpen, String timeClose, int rating, int totalReview, int discount, double lat, double lon, List<String> gallery, List<Cuisine> cuisines, List<Comment> comments) {
+    public Restaurant(String id, String address, String name, String photoUrl, String timeOpen, String timeClose, long rating, long[] discounts, double lat, double lon) {
+        this.id = id;
         this.address = address;
         this.name = name;
         this.photoUrl = photoUrl;
         this.timeOpen = timeOpen;
         this.timeClose = timeClose;
         this.rating = rating;
-        this.totalReview = totalReview;
-        this.discount = discount;
+        this.discounts = discounts;
         this.lat = lat;
         this.lon = lon;
-        this.gallery = gallery;
-        this.cuisines = cuisines;
-        this.comments = comments;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getAddress() {
@@ -70,11 +77,11 @@ public class Restaurant {
         this.timeClose = timeClose;
     }
 
-    public int getRating() {
+    public long getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 
@@ -86,12 +93,12 @@ public class Restaurant {
         this.totalReview = totalReview;
     }
 
-    public int getDiscount() {
-        return discount;
+    public long[] getDiscounts() {
+        return discounts;
     }
 
-    public void setDiscount(int discount) {
-        this.discount = discount;
+    public void setDiscounts(long[] discounts) {
+        this.discounts = discounts;
     }
 
     public double getLat() {
@@ -132,5 +139,19 @@ public class Restaurant {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "address='" + address + '\'' +
+                ", name='" + name + '\'' +
+                ", photoUrl='" + photoUrl + '\'' +
+                ", timeOpen='" + timeOpen + '\'' +
+                ", timeClose='" + timeClose + '\'' +
+                ", rating=" + rating +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
     }
 }

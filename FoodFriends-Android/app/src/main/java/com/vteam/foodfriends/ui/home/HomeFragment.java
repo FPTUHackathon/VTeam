@@ -16,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Restaurant;
+import com.vteam.foodfriends.data.remote.FirebaseRestaurantService;
 import com.vteam.foodfriends.ui.adapter.RestaurantAdapter;
 import com.vteam.foodfriends.ui.base.BaseFragment;
 
@@ -38,7 +39,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     private RestaurantAdapter mAdapter;
     private HomeContract.Presenter mPresenter;
     private DocumentReference docRef;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public HomeFragment() {
     }
@@ -52,51 +52,24 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void initView(View view) {
         mAdapter = new RestaurantAdapter(getActivity());
-        Log.d("init", " ");
-//        fetchData();
     }
 
-//    private void fetchData() {
-//        mRestaurantList = new ArrayList<>();
-//        db.collection("product")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (DocumentSnapshot document : task.getResult()) {
-//                                Restaurant restaurant = new Restaurant();
-//                                Log.d("hello", document.getId() + " => " + document.getData());
-//                                restaurant.setFoods((List<String>) document.getData().get("foods"));
-//                                restaurant.setStar(document.getString("rate"));
-//                                restaurant.setTimeavailable(document.getString("time"));
-//                                restaurant.setAddress(document.getString("address"));
-//                                restaurant.setName(document.getString("name"));
-//                                restaurant.setImagelink(document.getString("image"));
-//                                mRestaurantList.add(restaurant);
-//                            }
-//                        } else {
-//                            Log.d("hello", "Error getting documents: ", task.getException());
-//                        }
-//                        Log.d("size ", "" + mRestaurantList.size());
-//                        mAdapter.addAll(mRestaurantList);
-//                        mNewfeed.setAdapter(mAdapter);
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.d("hello", "Error getting documents: " + e);
-//            }
-//        });
-//    }
+
 
     @Override
     public void initData() {
         mAdapter = new RestaurantAdapter(getActivity());
+        mPresenter = new HomePresenter(mContext, this, new FirebaseRestaurantService(mContext));
+        mPresenter.fetchRestaurants();
     }
 
     @Override
     public void setPresenter(HomeContract.Presenter presenter) {
         this.mPresenter = presenter;
+    }
+
+    @Override
+    public void showRestaurants(List<Restaurant> list) {
+
     }
 }
