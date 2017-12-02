@@ -1,12 +1,14 @@
 package com.vteam.foodfriends.data.model;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by phuongbka on 12/1/17.
  */
 
-public class Restaurant {
+public class Restaurant implements Serializable{
     private String id, address, name, photoUrl, timeOpen, timeClose;
     private int totalReview;
     private long rating;
@@ -14,19 +16,21 @@ public class Restaurant {
     private double lat, lon;
     private List<String> gallery;
     private List<Cuisine> cuisines;
-    private List<Comment> comments;
+    private List<Map<String, Object>> comments;
 
-    public Restaurant(String id, String address, String name, String photoUrl, String timeOpen, String timeClose, long rating, long[] discounts, double lat, double lon) {
+    public Restaurant(String id, String address, String name, String photoUrl, String timeOpen, String timeClose, int totalReview, long rating, long[] discounts, double lat, double lon, List<Map<String, Object>> comments) {
         this.id = id;
         this.address = address;
         this.name = name;
         this.photoUrl = photoUrl;
         this.timeOpen = timeOpen;
         this.timeClose = timeClose;
+        this.totalReview = totalReview;
         this.rating = rating;
         this.discounts = discounts;
         this.lat = lat;
         this.lon = lon;
+        this.comments = comments;
     }
 
     public String getId() {
@@ -133,11 +137,11 @@ public class Restaurant {
         this.cuisines = cuisines;
     }
 
-    public List<Comment> getComments() {
+    public List<Map<String, Object>> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<Map<String, Object>> comments) {
         this.comments = comments;
     }
 

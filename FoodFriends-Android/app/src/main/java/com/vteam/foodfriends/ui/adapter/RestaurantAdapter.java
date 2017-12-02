@@ -1,6 +1,7 @@
 package com.vteam.foodfriends.ui.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.vteam.foodfriends.ui.base.BaseViewHolder;
  */
 
 public class RestaurantAdapter extends BaseAdapter<Restaurant> {
+    private OnItemClickListener mListener;
+
     public RestaurantAdapter(Context mContext) {
         super(mContext);
     }
@@ -39,27 +42,45 @@ public class RestaurantAdapter extends BaseAdapter<Restaurant> {
         holder.bind(restaurant, position);
     }
 
-    public class RestaurantViewHolder extends BaseViewHolder<Restaurant> {
+    public class RestaurantViewHolder extends BaseViewHolder<Restaurant> implements View.OnClickListener{
         ImageView imgRestaurant;
-        TextView txtName, txtAddress, txtTimeAvailable, txtStarRating;
+        TextView txtDiscount, txtName, txtAddress, txtTimeAvailable, txtStarRating;
+        CardView mCardView;
 
         public RestaurantViewHolder(View itemView) {
             super(itemView);
+            mCardView = itemView.findViewById(R.id.card_view);
             imgRestaurant = itemView.findViewById(R.id.iv_restaurant);
+            txtDiscount = itemView.findViewById(R.id.discount_number);
             txtAddress = itemView.findViewById(R.id.tv_address_restaurant);
             txtName = itemView.findViewById(R.id.tv_name_restaurant);
             txtTimeAvailable = itemView.findViewById(R.id.time_available);
             txtStarRating = itemView.findViewById(R.id.rating_star);
+            mCardView.setOnClickListener(this);
         }
 
         @Override
         public void bind(Restaurant restaurant, int position) {
-//            Glide.with(mContext).load(restaurant.getImagelink())
-//                    .into(imgRestaurant);
-//            txtName.setText(restaurant.getName());
-//            txtAddress.setText(restaurant.getAddress());
-//            txtStarRating.setText(restaurant.getStar());
-//            txtTimeAvailable.setText(restaurant.getTimeavailable());
+            Glide.with(mContext).load(restaurant.getPhotoUrl())
+                    .asBitmap().into(imgRestaurant);
+            txtDiscount.setText(restaurant.getDiscounts()[1] + "%");
+            txtAddress.setText(restaurant.getAddress());
+            txtName.setText(restaurant.getName());
+            txtStarRating.setText(restaurant.getRating() + "");
+
         }
+
+        @Override
+        public void onClick(View view) {
+            mListener.onClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnItemClickListener{
+        void onClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.mListener = listener;
     }
 }

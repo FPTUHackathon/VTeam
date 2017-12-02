@@ -58,4 +58,15 @@ public class Comment {
     public void setRating(int rating) {
         this.rating = rating;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", time='" + time + '\'' +
+                ", content='" + content + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
 }

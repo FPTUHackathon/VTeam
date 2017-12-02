@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.vteam.foodfriends.data.model.Comment;
 import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.data.remote.FirebaseRestaurantService;
 import com.vteam.foodfriends.utils.Constant;
@@ -64,6 +65,8 @@ public class HomePresenter implements HomeContract.Presenter{
                         String cuisineUrl = documentSnapshot.getString(Constant.FIREBASE_PRODUCT_CUISINE_URL);
                         String openTime = documentSnapshot.getString(Constant.FIREBASE_PRODUCT_TIME_OPEN);
                         String closeTime = documentSnapshot.getString(Constant.FIREBASE_PRODUCT_TIME_CLOSE);
+                        List<Map<String, Object>> list = (List<Map<String, Object>>) documentSnapshot.get(Constant.FIREBASE_PRODUCT_REVIEWS);
+
                         Restaurant restaurant = new Restaurant(
                                 id,
                                 address,
@@ -71,15 +74,21 @@ public class HomePresenter implements HomeContract.Presenter{
                                 photoUrl,
                                 openTime,
                                 closeTime,
+                                list.size(),
                                 rating,
                                 discounts,
                                 lat,
-                                lon
+                                lon,
+                                list
+
                         );
                         restaurants.add(restaurant);
-//                        Log.e(LOG_TAG, "Restaurant: " + restaurant.toString());
                     }
-                    mRestaurantRepository.updateRestaurant(restaurants.get(1).getId(), 3);
+
+                    mView.showRestaurants(restaurants);
+
+                } else {
+                    Log.e(LOG_TAG, "Failed");
                 }
             }
         });

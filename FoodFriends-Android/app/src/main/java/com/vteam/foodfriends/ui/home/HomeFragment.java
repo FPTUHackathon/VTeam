@@ -1,5 +1,6 @@
 package com.vteam.foodfriends.ui.home;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.data.remote.FirebaseRestaurantService;
 import com.vteam.foodfriends.ui.adapter.RestaurantAdapter;
 import com.vteam.foodfriends.ui.base.BaseFragment;
+import com.vteam.foodfriends.ui.detail_restaurant.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +33,13 @@ import static android.content.ContentValues.TAG;
  * Created by H2PhySicS on 11/28/2017.
  */
 
-public class HomeFragment extends BaseFragment implements HomeContract.View {
+public class HomeFragment extends BaseFragment implements HomeContract.View, RestaurantAdapter.OnItemClickListener {
     @BindView(R.id.newfeed)
     RecyclerView mNewfeed;
     List<Restaurant> mRestaurantList;
 
     private RestaurantAdapter mAdapter;
     private HomeContract.Presenter mPresenter;
-    private DocumentReference docRef;
 
     public HomeFragment() {
     }
@@ -61,6 +62,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         mAdapter = new RestaurantAdapter(getActivity());
         mPresenter = new HomePresenter(mContext, this, new FirebaseRestaurantService(mContext));
         mPresenter.fetchRestaurants();
+        mAdapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -70,6 +72,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void showRestaurants(List<Restaurant> list) {
+        mAdapter.addAll(list);
+        mNewfeed.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onClick(int position) {
+        Restaurant restaurant = mRestaurantList.get(position);
+
+//        Intent intent = new Intent(mContext, DetailActivity.class);
+//        intent.putExtra()
 
     }
 }

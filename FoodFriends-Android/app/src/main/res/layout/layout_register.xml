@@ -72,6 +72,22 @@
                 android:inputType="phone"
                 android:textSize="21sp" />
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Birth"
+            android:textColorHint="@color/black">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/register_txt_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Birth"
+                android:inputType="datetime"
+                android:textSize="21sp" />
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
 </RelativeLayout>
