@@ -135,9 +135,11 @@
                         android:text="@string/detail_appbar_title"
                         android:textColor="@color/bottom_plus_icon"
                         android:layout_toRightOf="@id/btn_back"
+                        android:layout_toLeftOf="@id/btn_reserve2"
                         android:layout_marginLeft="10dp"
                         android:layout_centerVertical="true"
                         android:alpha="0"
+                        android:singleLine="true"
                         android:visibility="visible"/>
 
                     <Button
@@ -320,6 +322,8 @@
                     android:id="@+id/user_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:stepSize="1"
+                    android:numStars="5"
                     style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/ranking_text"

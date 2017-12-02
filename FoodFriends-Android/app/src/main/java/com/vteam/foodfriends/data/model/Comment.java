@@ -9,9 +9,9 @@ public class Comment {
     private String author;
     private String time;
     private String content;
-    private int rating;
+    private long rating;
 
-    public Comment(String title, String author, String time, String content, int rating) {
+    public Comment(String title, String author, String time, String content, long rating) {
         this.title = title;
         this.author = author;
         this.time = time;
@@ -51,11 +51,11 @@ public class Comment {
         this.content = content;
     }
 
-    public int getRating() {
+    public long getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 

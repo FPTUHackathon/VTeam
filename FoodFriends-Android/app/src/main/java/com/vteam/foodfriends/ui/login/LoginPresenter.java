@@ -18,8 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.User;
+import com.vteam.foodfriends.data.remote.FirebaseUserService;
 import com.vteam.foodfriends.ui.main.MainActivity;
 
 /**
@@ -31,12 +34,15 @@ public class LoginPresenter implements LoginContract.Presenter{
     private LoginContract.View mView;
     private FirebaseAuth mAuth;
     private Context mContext;
+    private FirebaseUserService mFirebaseUserService;
+    String id;
 
-    public LoginPresenter(Context context, LoginContract.View view){
+    public LoginPresenter(Context context, LoginContract.View view, FirebaseUserService mFirebaseUserService){
         this.mView = view;
         this.mContext = context;
         mView.setPresenter(this);
         mAuth = FirebaseAuth.getInstance();
+        this.mFirebaseUserService = mFirebaseUserService;
     }
 
     @Override
@@ -58,8 +64,8 @@ public class LoginPresenter implements LoginContract.Presenter{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.e(LOG_TAG, "Login successfully");
-//                            FirebaseUser user = mAuth.getCurrentUser();
-                            mView.loginSuccess();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            mView.loginSuccess(user);
                             mView.hideLoadingIndicator();
 
                             //Login successfully
@@ -70,6 +76,25 @@ public class LoginPresenter implements LoginContract.Presenter{
                     }
                 });
     }
+
+    @Override
+    public void fetchUserId(FirebaseUser user) {
+        id = mFirebaseUserService.getUid(user);
+        Log.d(LOG_TAG," id"+ id);
+
+        Task<QuerySnapshot> task = mFirebaseUserService.getUserData(id);
+        task.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(DocumentSnapshot document: task.getResult()){
+
+                    }
+                }
+            }
+        });
+    }
+
 
     @Override
     public void register(final String email, String password, String username, String phone) {

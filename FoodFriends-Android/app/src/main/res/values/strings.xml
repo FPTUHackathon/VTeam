@@ -51,6 +51,9 @@
 ⚡Ưu Đãi là của Sen Đỏ Tặng Người.</string>
     <string name="detail_appbar_title">Restaurant</string>
 
+    <string name="rest_open">Đang mở cửa </string>
+    <string name="rest_close">Đang đóng cửa</string>
+
     <string name="follow">Theo dõi</string>
     <string name="near_me">Chỉ đường</string>
 
@@ -61,4 +64,10 @@
     <string name="ok">OK</string>
     <string name="title_activity_messenger2">MessengerActivity2</string>
     <string name="action_settings">Settings</string>
+
+    <!--Write comment-->
+    <string name="cancel_comment">Hủy</string>
+    <string name="send_comment">Gửi</string>
+    <string name="title_comment_hint">Tiêu đề (Không bắt buộc)</string>
+    <string name="content_comment_hint">Viết trên 100 từ, đúng chính tả, ngôn ngữ văn hóa, không spam... để được duyệt!</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.vteam.foodfriends.ui.login;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.vteam.foodfriends.data.model.User;
 import com.vteam.foodfriends.ui.base.BasePresenter;
 import com.vteam.foodfriends.ui.base.BaseView;
 
@@ -12,12 +14,14 @@ public class LoginContract {
 
     public interface Presenter extends BasePresenter{
         void login(String username, String password);
+        void fetchUserId(FirebaseUser user);
         void register(String email, String password, String username, String phone);
     }
 
     public interface View extends BaseView<Presenter>{
         void startForgotPassword();
-        void loginSuccess();
+        void loginSuccess(FirebaseUser user);
+        void showDataUser(User user);
         void registerSuccess();
         void showRegisterDialog();
         void showLoadingIndicator(String message);

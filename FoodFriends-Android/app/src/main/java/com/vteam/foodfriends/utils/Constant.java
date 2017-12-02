@@ -21,4 +21,6 @@ public class Constant {
     public static final String FIREBASE_PRODUCT_TIME_CLOSE = "TimeClose";
     public static final String FIREBASE_PRODUCT_CUISINE_URL = "ResUrlAlbums";
     public static final String FIREBASE_PRODUCT_REVIEWS = "LstReview";
+
+    public static final String EXTRA_RESTAURANT = "restaurant";
 }

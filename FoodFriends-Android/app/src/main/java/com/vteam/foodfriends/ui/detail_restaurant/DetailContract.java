@@ -1,6 +1,10 @@
 package com.vteam.foodfriends.ui.detail_restaurant;
 
+import android.content.Context;
+import android.content.Intent;
+
 import com.vteam.foodfriends.data.model.Comment;
+import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.ui.base.BasePresenter;
 import com.vteam.foodfriends.ui.base.BaseView;
 
@@ -12,11 +16,11 @@ import java.util.List;
 
 public class DetailContract {
     public interface Presenter extends BasePresenter{
-        void getRestDetail();
+        void getRestDetail(Intent i);
     }
 
     public interface View extends BaseView<Presenter>{
         void showComment(List<Comment> comments);
-        void showRestDetail();
+        void showRestDetail(Restaurant restaurant);
     }
 }

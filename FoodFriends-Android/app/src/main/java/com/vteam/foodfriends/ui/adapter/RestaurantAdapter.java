@@ -83,4 +83,8 @@ public class RestaurantAdapter extends BaseAdapter<Restaurant> {
     public void setOnItemClickListener(OnItemClickListener listener){
         this.mListener = listener;
     }
+
+    public Restaurant get(int position){
+        return mList.get(position);
+    }
 }

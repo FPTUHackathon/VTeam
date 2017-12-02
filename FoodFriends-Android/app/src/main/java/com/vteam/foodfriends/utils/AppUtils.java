@@ -38,4 +38,16 @@ public class AppUtils {
         String[] dateSplit = date.split(" - ");
         return dateSplit[2];
     }
+
+    public static int getDistance(double latUser, double lonUser, double latShop, double lonShop){
+        int distance = (int) Math.sqrt(Math.pow(latUser - latShop, 2) + Math.pow(lonUser - lonShop, 2));
+        return distance;
+    }
+
+    public static boolean isOpening(String openTime, String closeTime){
+        boolean isOpen = false;
+
+
+        return isOpen;
+    }
 }

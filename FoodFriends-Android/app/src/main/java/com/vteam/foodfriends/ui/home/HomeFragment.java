@@ -21,6 +21,7 @@ import com.vteam.foodfriends.data.remote.FirebaseRestaurantService;
 import com.vteam.foodfriends.ui.adapter.RestaurantAdapter;
 import com.vteam.foodfriends.ui.base.BaseFragment;
 import com.vteam.foodfriends.ui.detail_restaurant.DetailActivity;
+import com.vteam.foodfriends.utils.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,10 +79,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Res
 
     @Override
     public void onClick(int position) {
-        Restaurant restaurant = mRestaurantList.get(position);
+        Restaurant restaurant = mAdapter.get(position);
 
-//        Intent intent = new Intent(mContext, DetailActivity.class);
-//        intent.putExtra()
+        Intent intent = new Intent(mContext, DetailActivity.class);
+        intent.putExtra(Constant.EXTRA_RESTAURANT, restaurant);
+        startActivity(intent);
 
     }
 }

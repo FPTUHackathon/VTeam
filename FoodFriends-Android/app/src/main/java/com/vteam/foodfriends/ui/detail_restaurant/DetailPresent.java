@@ -1,12 +1,16 @@
 package com.vteam.foodfriends.ui.detail_restaurant;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Comment;
+import com.vteam.foodfriends.data.model.Restaurant;
+import com.vteam.foodfriends.utils.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by H2PhySicS on 12/1/2017.
@@ -33,21 +37,24 @@ public class DetailPresent implements DetailContract.Presenter {
     }
 
     @Override
-    public void getRestDetail() {
-        mView.showComment(getFakeComments());
+    public void getRestDetail(Intent i) {
+        Restaurant restaurant = (Restaurant) i.getSerializableExtra(Constant.EXTRA_RESTAURANT);
+        List<Map<String, Object>> list = restaurant.getComments();
+        List<Comment>  comments = new ArrayList<>();
+        for (Map<String, Object> m : list){
+            Comment comment = new Comment(
+                    (String) m.get("title"),
+                    (String) m.get("author"),
+                    (String) m.get("time"),
+                    (String) m.get("content"),
+                    (Long) m.get("rating")
+            );
+            comments.add(comment);
+        }
+        mView.showRestDetail(restaurant);
+
+        mView.showComment(comments);
     }
 
-    public List<Comment> getFakeComments(){
-        List<Comment> comments = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
-            comments.add(new Comment(
-                    mContext.getString(R.string.comment_title_example),
-                    mContext.getString(R.string.comment_author_example),
-                    mContext.getString(R.string.comment_time_example),
-                    mContext.getString(R.string.comment_content_example),
-                    3
-            ));
-        }
-        return comments;
-    }
+
 }

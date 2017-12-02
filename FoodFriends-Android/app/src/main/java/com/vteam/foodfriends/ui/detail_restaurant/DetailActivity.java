@@ -1,5 +1,6 @@
 package com.vteam.foodfriends.ui.detail_restaurant;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.AppBarLayout;
@@ -20,10 +21,14 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Comment;
+import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.ui.adapter.CommentAdapter;
 import com.vteam.foodfriends.ui.base.BaseActivity;
+import com.vteam.foodfriends.utils.AppUtils;
+import com.vteam.foodfriends.utils.Constant;
 
 import org.w3c.dom.Text;
 
@@ -33,7 +38,9 @@ import java.util.List;
 import butterknife.BindView;
 
 public class DetailActivity extends BaseActivity implements DetailContract.View,
-        AppBarLayout.OnOffsetChangedListener{
+        AppBarLayout.OnOffsetChangedListener,
+        RatingBar.OnRatingBarChangeListener,
+        View.OnClickListener{
     private static final String LOG_TAG = DetailActivity.class.getSimpleName();
     @BindView(R.id.gallery_layout)
     GridLayout mGallery;
@@ -107,12 +114,14 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
         mCommentAdapter = new CommentAdapter(this);
         screenSize = getScreenSize();
         optimizeGallery();
-        mPresenter.getRestDetail();
+        mPresenter.getRestDetail(getIntent());
         mCommentList.addItemDecoration(new CommentDecoration(getDrawable(R.drawable.divider)));
         SnapHelper snapHelper = new CommentSnapHelper();
         snapHelper.attachToRecyclerView(mCommentList);
         mAppbar.addOnOffsetChangedListener(this);
         mCommentList.clearFocus();
+
+        mUserRating.setOnRatingBarChangeListener(this);
     }
 
     @Override
@@ -122,12 +131,32 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
 
     @Override
     public void showComment(List<Comment> comments) {
-        mCommentAdapter.addAll(comments);
-        mCommentList.setAdapter(mCommentAdapter);
+        if (comments.size() > 0){
+            mCommentAdapter.addAll(comments);
+            mCommentList.setAdapter(mCommentAdapter);
+        } else {
+            mCommentList.setVisibility(View.GONE);
+        }
     }
 
     @Override
-    public void showRestDetail() {
+    public void showRestDetail(Restaurant restaurant) {
+
+        Glide.with(this).load(restaurant.getPhotoUrl())
+                .asBitmap()
+                .into(mHeader);
+        mRestName.setText(restaurant.getName());
+        mRestOpenTime.setText(restaurant.getTimeOpen() + " - " + restaurant.getTimeClose());
+        if (AppUtils.isOpening(restaurant.getTimeOpen(), restaurant.getTimeClose())){
+            mRestOpenStatus.setText(getString(R.string.rest_open));
+        } else {
+            mRestOpenStatus.setText(getString(R.string.rest_close));
+        }
+//        mRestDistance.setText();
+        mAppbarTitle.setText(restaurant.getName());
+        mRatingNumber.setText(restaurant.getRating() + "");
+        mRestRating.setRating(restaurant.getRating());
+        mTotalComment.setText(restaurant.getTotalReview() + " đánh giá");
 
     }
 
@@ -222,5 +251,16 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
             mAppbarTitle.setAlpha(0);
             mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_back));
         }
+    }
+
+    @Override
+    public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+        Log.e(LOG_TAG, "OnRatingBarChange");
+        ratingBar.setRating(v);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

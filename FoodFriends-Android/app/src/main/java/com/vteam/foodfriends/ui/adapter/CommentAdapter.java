@@ -60,7 +60,7 @@ public class CommentAdapter extends BaseAdapter<Comment> {
             mAuthor.setText(comment.getAuthor());
             mTime.setText(comment.getTime());
             mContent.setText(comment.getContent());
-            mUserRating.setNumStars(comment.getRating());
+            mUserRating.setNumStars((int)comment.getRating());
         }
     }
 }

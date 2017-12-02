@@ -7,13 +7,18 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.vteam.foodfriends.R;
+import com.vteam.foodfriends.data.model.User;
+import com.vteam.foodfriends.data.remote.FirebaseUserService;
 import com.vteam.foodfriends.ui.base.BaseActivity;
 import com.vteam.foodfriends.ui.main.MainActivity;
 import com.vteam.foodfriends.utils.SnackbarUtils;
@@ -21,7 +26,7 @@ import com.vteam.foodfriends.utils.SnackbarUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends BaseActivity implements LoginContract.View, View.OnClickListener{
+public class LoginActivity extends BaseActivity implements LoginContract.View, View.OnClickListener {
     private static final String LOG_TAG = LoginActivity.class.getSimpleName();
     private LoginContract.Presenter mPresenter;
 
@@ -37,6 +42,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
     TextView mForgotPassword;
     @BindView(R.id.login_screen)
     RelativeLayout mLoginScreen;
+    FirebaseUser firebaseuser;
+    String uid;
 
     @Override
     public int getContentView() {
@@ -76,9 +83,16 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
     }
 
     @Override
-    public void loginSuccess() {
+    public void loginSuccess(FirebaseUser user) {
+        mPresenter.fetchUserId(user);
         startActivityWithAnimation(new Intent(this, MainActivity.class));
     }
+
+    @Override
+    public void showDataUser(User user) {
+
+    }
+
 
     @Override
     public void registerSuccess() {
@@ -150,7 +164,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
 
     @Override
     public void showLoadingIndicator(String message) {
-        if (message == null){
+        if (message == null) {
             showLoading();
         } else {
             showLoading(message);
@@ -171,7 +185,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
 
     @Override
     public void focusedOnActivity(boolean focused) {
-        if (focused){
+        if (focused) {
             mLoginScreen.setFocusable(true);
         } else {
             mLoginScreen.setFocusable(false);
@@ -180,7 +194,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
 
     @Override
     public void init() {
-        mPresenter = new LoginPresenter(this, this);
+        mPresenter = new LoginPresenter(this, this, new FirebaseUserService(this));
+
         mLogin.setOnClickListener(this);
         mRegister.setOnClickListener(this);
         mForgotPassword.setOnClickListener(this);
@@ -191,7 +206,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
         int id = v.getId();
         String username = mTextEmail.getText().toString();
         String password = mTextPassword.getText().toString();
-        switch (id){
+        switch (id) {
             case R.id.bt_login: {
                 mPresenter.login(username, password);
                 break;
