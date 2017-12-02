@@ -1,6 +1,7 @@
 package com.vteam.foodfriends.ui.adapter;
 
 import android.content.Context;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.vteam.foodfriends.ui.base.BaseViewHolder;
  */
 
 public class PartnerAdapterOne extends BaseAdapter<Partner> {
+    private OnItemClickListener onItemClickListener;
+    View view;
 
     public PartnerAdapterOne(Context mContext) {
         super(mContext);
@@ -31,8 +34,12 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
 
     @Override
     public BaseViewHolder<Partner> onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(getContentView(), parent, false);
+        view = LayoutInflater.from(mContext).inflate(getContentView(), parent, false);
         return new PartnerViewHolder(view);
+    }
+
+    public void setOnItemClick(PartnerAdapterOne.OnItemClickListener onClickListener) {
+        this.onItemClickListener = onClickListener;
     }
 
     @Override
@@ -42,7 +49,7 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
         holder.bind(partner,position);
     }
 
-    public class PartnerViewHolder extends BaseViewHolder<Partner> {
+    public class PartnerViewHolder extends BaseViewHolder<Partner> implements View.OnClickListener  {
         ImageView mAvatar;
         TextView mName, mAge, mTime, mDistance;
 
@@ -53,6 +60,8 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
             mAge = itemView.findViewById(R.id.age_single);
             mTime = itemView.findViewById(R.id.tv_time_single);
             mDistance = itemView.findViewById(R.id.tv_distance_single);
+            itemView.getRootView().setOnClickListener(this);
+            mAvatar.setOnClickListener(this);
         }
 
         @Override
@@ -65,5 +74,15 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
             mTime.setText(partner.getTime());
             mDistance.setText(partner.getDistance());
         }
+
+        @Override
+        public void onClick(View view) {
+            onItemClickListener.onClick(getAdapterPosition(),view);
+        }
+
+    }
+
+    public interface OnItemClickListener {
+        void onClick(int position, View view);
     }
 }

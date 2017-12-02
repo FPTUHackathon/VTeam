@@ -23,6 +23,8 @@ public class PartnerAdapterGroup extends BaseAdapter<Group> {
     public PartnerAdapterGroup(Context mContext) {
         super(mContext);
     }
+    private OnItemClickListener onClickListener;
+    View view;
 
     @Override
     public int getContentView() {
@@ -31,8 +33,12 @@ public class PartnerAdapterGroup extends BaseAdapter<Group> {
 
     @Override
     public BaseViewHolder<Group> onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(getContentView(), parent, false);
+        view = LayoutInflater.from(mContext).inflate(getContentView(), parent, false);
         return new PartnerAdapterGroup.GroupViewHolder(view);
+    }
+
+    public void setOnItemClick(OnItemClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -42,7 +48,7 @@ public class PartnerAdapterGroup extends BaseAdapter<Group> {
         holder.bind(group ,position);
     }
 
-    public class GroupViewHolder extends BaseViewHolder<Group> {
+    public class GroupViewHolder extends BaseViewHolder<Group> implements View.OnClickListener{
         ImageView mAvatar;
         TextView mName, mTime;
 
@@ -51,15 +57,28 @@ public class PartnerAdapterGroup extends BaseAdapter<Group> {
             mAvatar = itemView.findViewById(R.id.avatar);
             mName = itemView.findViewById(R.id.tv_name_user);
             mTime = itemView.findViewById(R.id.tv_time);
+            itemView.getRootView().setOnClickListener(this);
+            mAvatar.setOnClickListener(this);
         }
 
         @Override
         public void bind(Group group, int position) {
-
             Glide.with(mContext).load(R.drawable.avatar)
                     .into(mAvatar);
             mName.setText(group.getName());
             mTime.setText(group.getTime());
         }
+
+        @Override
+        public void onClick(View view) {
+            onClickListener.onClick(getAdapterPosition(),view);
+
+        }
     }
+
+    public interface OnItemClickListener {
+        void onClick(int position,View view);
+    }
+
+
 }

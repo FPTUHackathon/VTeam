@@ -1,7 +1,12 @@
 package com.vteam.foodfriends.ui.partner;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.vteam.foodfriends.R;
@@ -18,7 +23,7 @@ import butterknife.BindView;
  * Created by phuongbka on 12/1/17.
  */
 
-public class FragmentWaitingSingle extends BaseFragment implements PartnerContract.View {
+public class FragmentWaitingSingle extends BaseFragment implements PartnerContract.View, View.OnClickListener, PartnerAdapterOne.OnItemClickListener {
     private PartnerContract.Presenter mPresenter;
     private List<Partner> mPartnerList;
     private PartnerAdapterOne mAdapter;
@@ -60,6 +65,30 @@ public class FragmentWaitingSingle extends BaseFragment implements PartnerContra
         }
         mAdapter.addAll(mPartnerList);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClick(this);
+    }
 
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onClick(int position, View view) {
+        switch (view.getId()){
+            case R.id.avatar_single:
+                showDialog();
+                break;
+        }
+    }
+
+    private void showDialog() {
+        Dialog dialog = new Dialog(mContext);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        View info_group = inflater.inflate(R.layout.layout_info_partner, null);
+
+        dialog.setContentView(info_group);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }

@@ -10,8 +10,8 @@ import com.vteam.foodfriends.ui.login.LoginPresenter;
  */
 
 public class MainPresenter implements MainContract.Presenter {
-    private static final String LOG_TAG = LoginPresenter.class.getSimpleName();
-    private LoginContract.View mView;
+    private static final String LOG_TAG = MainPresenter.class.getSimpleName();
+    private MainContract.View mView;
     private Context mContext;
 
     @Override

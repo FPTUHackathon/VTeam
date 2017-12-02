@@ -1,186 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="45dp"
-        android:layout_height="25dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="85dp"
-        android:background="@drawable/imageview_orange"
-        android:elevation="10dp">
-
-        <TextView
-            android:id="@+id/age"
-            android:layout_width="45dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="4dp"
-            android:gravity="center_vertical"
-            android:text="18"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="25dp"
-            android:elevation="10dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="14dp"
-            android:paddingTop="5dp"
-            android:src="@drawable/male" />
-
-    </RelativeLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_avatar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/line"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
-        android:elevation="3dp"
-        android:src="@drawable/avatar"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="4dp" />
-
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview"
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="30dp"
-        android:elevation="5dp"
-        app:cardCornerRadius="10dp">
+        android:layout_height="250dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="45dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/imageview_orange"
+            android:elevation="10dp">
 
             <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="65dp"
-                android:text="Thân Thị Thảo Vân"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:id="@+id/age"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center_vertical"
+                android:text="24"
+                android:textColor="@color/white" />
 
-            <View
-                android:id="@+id/line"
-                android:layout_width="150dp"
-                android:layout_height="1dp"
-                android:layout_below="@id/tv_name"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:background="@color/search_text" />
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:elevation="10dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="14dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/group_white" />
+
+        </RelativeLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@+id/line"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:elevation="3dp"
+            android:src="@drawable/avatar"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="4dp" />
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/line">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="7dp"
-                    android:src="@drawable/clock" />
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tv_time"
+                    android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/imageView"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toEndOf="@+id/imageView"
-                    android:text="11h30, ngày 1 tháng 12"
-                    android:textSize="12sp" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="65dp"
+                    android:text="Thân Thị Thảo Vân"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_below="@id/imageView"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/near_me_black" />
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="150dp"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/tv_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/search_text" />
 
-                <TextView
-                    android:id="@+id/tv_address_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/imageView2"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toEndOf="@+id/imageView2"
-                    android:text="3 Thái Hà, Quận Hai Bà Trưng, Hà Nội"
-                    android:textSize="12sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/line">
 
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/clock" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/imageView"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toEndOf="@+id/imageView"
+                        android:text="11h30, ngày 1 tháng 12"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_below="@id/imageView"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/near_me_black" />
+
+                    <TextView
+                        android:id="@+id/tv_address_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/imageView2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toEndOf="@+id/imageView2"
+                        android:text="3 Thái Hà, Quận Hai Bà Trưng, Hà Nội"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
             </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/tv_address_user"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/bottom_below_cardview"
+            android:elevation="1dp">
+
+            <ImageView
+                android:id="@+id/imageviewmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/mail_orange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/imageviewmail"
+                android:text="Nhắn tin"
+                android:textColor="@color/bottom_plus_icon" />
+
+            <View
+                android:id="@+id/view_between"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/search_bar" />
+
+            <ImageView
+                android:id="@+id/imageviewdirection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@id/view_between"
+                android:src="@drawable/near_me" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/imageviewdirection"
+                android:text="Chỉ đường"
+                android:textColor="@color/bottom_plus_icon" />
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
 
-    <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_alignTop="@+id/tv_address_user"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom|center_horizontal"
-        android:background="@drawable/bottom_below_cardview"
-        android:elevation="1dp">
-
-        <ImageView
-            android:id="@+id/imageviewmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/mail_orange"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/imageviewmail"
-            android:layout_centerVertical="true"
-            android:text="Nhắn tin"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="4dp"
-            android:textColor="@color/bottom_plus_icon"/>
-
-        <View
-            android:id="@+id/view_between"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/search_bar"
-            android:layout_centerHorizontal="true"/>
-
-        <ImageView
-            android:id="@+id/imageviewdirection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/view_between"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/near_me"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/imageviewdirection"
-            android:layout_centerVertical="true"
-            android:text="Chỉ đường"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="@color/bottom_plus_icon"/>
-    </RelativeLayout>
-
-</FrameLayout>
+    </FrameLayout>
+</RelativeLayout>

@@ -53,42 +53,42 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     public void initView(View view) {
         mAdapter = new RestaurantAdapter(getActivity());
         Log.d("init", " ");
-        fetchData();
+//        fetchData();
     }
 
-    private void fetchData() {
-        mRestaurantList = new ArrayList<>();
-        db.collection("product")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (DocumentSnapshot document : task.getResult()) {
-                                Restaurant restaurant = new Restaurant();
-                                Log.d("hello", document.getId() + " => " + document.getData());
-                                restaurant.setFoods((List<String>) document.getData().get("foods"));
-                                restaurant.setStar(document.getString("rate"));
-                                restaurant.setTimeavailable(document.getString("time"));
-                                restaurant.setAddress(document.getString("address"));
-                                restaurant.setName(document.getString("name"));
-                                restaurant.setImagelink(document.getString("image"));
-                                mRestaurantList.add(restaurant);
-                            }
-                        } else {
-                            Log.d("hello", "Error getting documents: ", task.getException());
-                        }
-                        Log.d("size ", "" + mRestaurantList.size());
-                        mAdapter.addAll(mRestaurantList);
-                        mNewfeed.setAdapter(mAdapter);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("hello", "Error getting documents: " + e);
-            }
-        });
-    }
+//    private void fetchData() {
+//        mRestaurantList = new ArrayList<>();
+//        db.collection("product")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (DocumentSnapshot document : task.getResult()) {
+//                                Restaurant restaurant = new Restaurant();
+//                                Log.d("hello", document.getId() + " => " + document.getData());
+//                                restaurant.setFoods((List<String>) document.getData().get("foods"));
+//                                restaurant.setStar(document.getString("rate"));
+//                                restaurant.setTimeavailable(document.getString("time"));
+//                                restaurant.setAddress(document.getString("address"));
+//                                restaurant.setName(document.getString("name"));
+//                                restaurant.setImagelink(document.getString("image"));
+//                                mRestaurantList.add(restaurant);
+//                            }
+//                        } else {
+//                            Log.d("hello", "Error getting documents: ", task.getException());
+//                        }
+//                        Log.d("size ", "" + mRestaurantList.size());
+//                        mAdapter.addAll(mRestaurantList);
+//                        mNewfeed.setAdapter(mAdapter);
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Log.d("hello", "Error getting documents: " + e);
+//            }
+//        });
+//    }
 
     @Override
     public void initData() {

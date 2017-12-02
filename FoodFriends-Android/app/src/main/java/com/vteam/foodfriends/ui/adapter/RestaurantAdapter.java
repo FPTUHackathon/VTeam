@@ -54,12 +54,12 @@ public class RestaurantAdapter extends BaseAdapter<Restaurant> {
 
         @Override
         public void bind(Restaurant restaurant, int position) {
-            Glide.with(mContext).load(restaurant.getImagelink())
-                    .into(imgRestaurant);
-            txtName.setText(restaurant.getName());
-            txtAddress.setText(restaurant.getAddress());
-            txtStarRating.setText(restaurant.getStar());
-            txtTimeAvailable.setText(restaurant.getTimeavailable());
+//            Glide.with(mContext).load(restaurant.getImagelink())
+//                    .into(imgRestaurant);
+//            txtName.setText(restaurant.getName());
+//            txtAddress.setText(restaurant.getAddress());
+//            txtStarRating.setText(restaurant.getStar());
+//            txtTimeAvailable.setText(restaurant.getTimeavailable());
         }
     }
 }
