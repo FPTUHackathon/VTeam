@@ -89,6 +89,7 @@
         android:textSize="12sp" />
 
     <ImageView
+        android:id="@+id/messenger_now"
         android:layout_width="40dp"
         android:layout_height="50dp"
         android:background="@drawable/button_message_ripple"

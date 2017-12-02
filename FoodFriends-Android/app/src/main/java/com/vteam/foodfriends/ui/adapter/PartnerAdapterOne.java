@@ -50,7 +50,7 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
     }
 
     public class PartnerViewHolder extends BaseViewHolder<Partner> implements View.OnClickListener  {
-        ImageView mAvatar;
+        ImageView mAvatar,mMessengerNow;
         TextView mName, mAge, mTime, mDistance;
 
         public PartnerViewHolder(View itemView) {
@@ -60,7 +60,9 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
             mAge = itemView.findViewById(R.id.age_single);
             mTime = itemView.findViewById(R.id.tv_time_single);
             mDistance = itemView.findViewById(R.id.tv_distance_single);
+            mMessengerNow = itemView.findViewById(R.id.messenger_now);
             itemView.getRootView().setOnClickListener(this);
+            mMessengerNow.setOnClickListener(this);
             mAvatar.setOnClickListener(this);
         }
 

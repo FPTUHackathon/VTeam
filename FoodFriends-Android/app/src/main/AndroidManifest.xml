@@ -26,12 +26,15 @@
         </activity>
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme" />
         <activity android:name=".ui.introduction.IntroActivity" />
         <activity android:name=".ui.detail_restaurant.DetailActivity" />
         <activity android:name=".ui.partner.PartnerActivity">
         </activity>
-        <activity android:name=".ui.messenger.MessengerAcitivity"></activity>
+        <activity
+            android:name=".ui.messenger.MessengerActivity2"
+            android:label="@string/title_activity_messenger2"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

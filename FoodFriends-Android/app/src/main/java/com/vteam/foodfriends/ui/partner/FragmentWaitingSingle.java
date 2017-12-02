@@ -1,11 +1,10 @@
 package com.vteam.foodfriends.ui.partner;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -13,6 +12,7 @@ import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.ui.adapter.PartnerAdapterOne;
 import com.vteam.foodfriends.ui.base.BaseFragment;
+import com.vteam.foodfriends.ui.messenger.MessengerActivity2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +79,15 @@ public class FragmentWaitingSingle extends BaseFragment implements PartnerContra
             case R.id.avatar_single:
                 showDialog();
                 break;
+            case R.id.messenger_now:
+                newActivity();
+                break;
         }
+    }
+
+    private void newActivity() {
+        Intent intent = new Intent(mContext, MessengerActivity2.class);
+        startActivity(intent);
     }
 
     private void showDialog() {

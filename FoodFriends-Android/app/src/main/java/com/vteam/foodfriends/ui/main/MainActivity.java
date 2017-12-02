@@ -21,8 +21,8 @@ import com.vteam.foodfriends.utils.ScreenManager;
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity implements MainContract.View, View.OnClickListener, SearchView.OnQueryTextListener{
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
-    @BindView(R.id.space)
+        private static final String LOG_TAG = MainActivity.class.getSimpleName();
+        @BindView(R.id.space)
     SpaceNavigationView mSpaceNavigationView;
     @BindView(R.id.search_view)
     SearchView searchView;

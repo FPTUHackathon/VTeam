@@ -59,4 +59,6 @@
     <string name="minute_example">30</string>
     <string name="dot">:</string>
     <string name="ok">OK</string>
+    <string name="title_activity_messenger2">MessengerActivity2</string>
+    <string name="action_settings">Settings</string>
 </resources>
