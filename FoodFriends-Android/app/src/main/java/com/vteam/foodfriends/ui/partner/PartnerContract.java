@@ -13,6 +13,6 @@ public class PartnerContract {
 
     }
 
-    public interface View extends BaseView<MainContract.Presenter> {
+    public interface View extends BaseView<PartnerContract.Presenter> {
     }
 }

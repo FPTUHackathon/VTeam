@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -13,7 +12,8 @@ import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 
 import com.vteam.foodfriends.R;
-import com.vteam.foodfriends.ui.home.HomeFragment;
+import com.vteam.foodfriends.ui.partner.FragmentWaitingSingle;
+import com.vteam.foodfriends.ui.partner.FragmentWaitingGroup;
 
 /**
  * Created by H2PhySicS on 11/29/2017.
@@ -33,10 +33,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag = null;
         switch (position) {
             case 0:
-                frag = new HomeFragment();
+                frag = new FragmentWaitingSingle();
                 break;
             case 1:
-                frag = new HomeFragment();
+                frag = new FragmentWaitingGroup();
                 break;
         }
         return frag;
@@ -52,10 +52,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                mDrawable = mContext.getResources().getDrawable(R.drawable.ic_close_black);
+                mDrawable = mContext.getResources().getDrawable(R.drawable.user);
                 break;
             case 1:
-                mDrawable = mContext.getResources().getDrawable(R.drawable.ic_close_black);
+                mDrawable = mContext.getResources().getDrawable(R.drawable.group);
                 break;
             default:
                 break;

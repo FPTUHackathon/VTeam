@@ -7,18 +7,27 @@ import java.util.List;
  */
 
 public class Restaurant {
-    private String address, name, imagelink,timeavailable, star;
-    private List<String> foods;
+    private String address, name, photoUrl, timeOpen, timeClose;
+    private int rating, totalReview, discount;
+    private double lat, lon;
+    private List<String> gallery;
+    private List<Cuisine> cuisines;
+    private List<Comment> comments;
 
-    public Restaurant(){};
-
-    public Restaurant(String address, String name, String imagelink, String timeavailable, String star, List<String> foods) {
+    public Restaurant(String address, String name, String photoUrl, String timeOpen, String timeClose, int rating, int totalReview, int discount, double lat, double lon, List<String> gallery, List<Cuisine> cuisines, List<Comment> comments) {
         this.address = address;
         this.name = name;
-        this.imagelink = imagelink;
-        this.timeavailable = timeavailable;
-        this.star = star;
-        this.foods = foods;
+        this.photoUrl = photoUrl;
+        this.timeOpen = timeOpen;
+        this.timeClose = timeClose;
+        this.rating = rating;
+        this.totalReview = totalReview;
+        this.discount = discount;
+        this.lat = lat;
+        this.lon = lon;
+        this.gallery = gallery;
+        this.cuisines = cuisines;
+        this.comments = comments;
     }
 
     public String getAddress() {
@@ -37,35 +46,91 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getImagelink() {
-        return imagelink;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setImagelink(String imagelink) {
-        this.imagelink = imagelink;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
-    public String getTimeavailable() {
-        return timeavailable;
+    public String getTimeOpen() {
+        return timeOpen;
     }
 
-    public void setTimeavailable(String timeavailable) {
-        this.timeavailable = timeavailable;
+    public void setTimeOpen(String timeOpen) {
+        this.timeOpen = timeOpen;
     }
 
-    public String getStar() {
-        return star;
+    public String getTimeClose() {
+        return timeClose;
     }
 
-    public void setStar(String star) {
-        this.star = star;
+    public void setTimeClose(String timeClose) {
+        this.timeClose = timeClose;
     }
 
-    public List<String> getFoods() {
-        return foods;
+    public int getRating() {
+        return rating;
     }
 
-    public void setFoods(List<String> foods) {
-        this.foods = foods;
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getTotalReview() {
+        return totalReview;
+    }
+
+    public void setTotalReview(int totalReview) {
+        this.totalReview = totalReview;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public void setLon(double lon) {
+        this.lon = lon;
+    }
+
+    public List<String> getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(List<String> gallery) {
+        this.gallery = gallery;
+    }
+
+    public List<Cuisine> getCuisines() {
+        return cuisines;
+    }
+
+    public void setCuisines(List<Cuisine> cuisines) {
+        this.cuisines = cuisines;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

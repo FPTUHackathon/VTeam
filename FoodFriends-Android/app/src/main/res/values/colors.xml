@@ -61,4 +61,6 @@
     <color name="follow">#EE712B</color>
     <color name="guide_route">#EE712B</color>
     <color name="line_between_2_button">#F7F7F7</color>
+
+    <color name="background_button_skip">#c7c7c7</color>
 </resources>

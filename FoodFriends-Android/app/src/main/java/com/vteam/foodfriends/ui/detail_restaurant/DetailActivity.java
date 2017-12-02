@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -69,8 +71,10 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
     RatingBar mRestRating;
     @BindView(R.id.tv_total_comment)
     TextView mTotalComment;
-    @BindView(R.id.btn_reserve)
-    Button mReserve;
+    @BindView(R.id.btn_reserve1)
+    Button mReserve1;
+    @BindView(R.id.btn_reserve2)
+    Button mReserve2;
     @BindView(R.id.user_rating)
     RatingBar mUserRating;
     @BindView(R.id.rv_comment)
@@ -83,10 +87,14 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
     TextView mAppbarTitle;
     @BindView(R.id.reserve_layout)
     ConstraintLayout mReserveLayout;
+    @BindView(R.id.header_layout)
+    RelativeLayout mHeaderLayout;
 
     private int[] screenSize;
     private DetailContract.Presenter mPresenter;
     private CommentAdapter mCommentAdapter;
+    private boolean isChoose = false;
+    private boolean isMovingHalf = false;
 
     @Override
     public int getContentView() {
@@ -104,9 +112,48 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
         SnapHelper snapHelper = new CommentSnapHelper();
         snapHelper.attachToRecyclerView(mCommentList);
         mAppbar.addOnOffsetChangedListener(this);
+        mCommentList.clearFocus();
     }
 
+    @Override
+    public void setPresenter(DetailContract.Presenter presenter) {
+        this.mPresenter = presenter;
+    }
 
+    @Override
+    public void showComment(List<Comment> comments) {
+        mCommentAdapter.addAll(comments);
+        mCommentList.setAdapter(mCommentAdapter);
+    }
+
+    @Override
+    public void showRestDetail() {
+
+    }
+
+    @Override
+    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+        int offsetPositive = Math.abs(verticalOffset);
+        float alphaToolbar = (float) offsetPositive / mAppbar.getTotalScrollRange();
+        float alphaHeader = 1 - alphaToolbar;
+        setAlpha(mHeaderLayout, alphaHeader);
+        if (offsetPositive >= mAppbar.getTotalScrollRange() && isChoose){
+            isChoose = false;
+            endCollapsed(true);
+        } else if(offsetPositive < mAppbar.getTotalScrollRange() && !isChoose){
+            isChoose = true;
+            endCollapsed(false);
+        }
+
+        if (offsetPositive >= mAppbar.getTotalScrollRange() / 2 && isMovingHalf){
+            isMovingHalf = false;
+            mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_orange));
+        } else if(offsetPositive < mAppbar.getTotalScrollRange() / 2 && !isMovingHalf){
+            isMovingHalf = true;
+            mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_back));
+        }
+
+    }
 
     public void optimizeGallery(){
         GridLayout.LayoutParams galleryParams1 = (GridLayout.LayoutParams) mMainImage.getLayoutParams();
@@ -144,41 +191,36 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
         return new int[]{width, height};
     }
 
-    @Override
-    public void setPresenter(DetailContract.Presenter presenter) {
-        this.mPresenter = presenter;
+    private void setAlpha(View view, float alpha){
+        view.setAlpha(alpha);
     }
 
-    @Override
-    public void showComment(List<Comment> comments) {
-        mCommentAdapter.addAll(comments);
-        mCommentList.setAdapter(mCommentAdapter);
-    }
+    private void endCollapsed(boolean isEnd){
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 
-    @Override
-    public void showRestDetail() {
-
-    }
-
-    @Override
-    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-        if(Math.abs(verticalOffset) >= mAppbar.getTotalScrollRange()){
-            mRestRating.setVisibility(View.GONE);
-            mRatingNumber.setVisibility(View.GONE);
-            mTotalComment.setVisibility(View.GONE);
-            mAppbarTitle.setVisibility(View.VISIBLE);
-            mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_orange));
-            mReserveLayout.setBackgroundColor(getResources().getColor(R.color.white_transparent));
-            mToolbarDetail.setBackgroundColor(getResources().getColor(R.color.white));
+        if (isEnd){
+            mReserveLayout.clearAnimation();
+            mReserveLayout.startAnimation(fadeOut);
+            mReserveLayout.setAlpha(0);
+            mAppbarTitle.clearAnimation();
+            mAppbarTitle.startAnimation(fadeIn);
+            mAppbarTitle.setAlpha(1);
+            mReserve2.clearAnimation();
+            mReserve2.startAnimation(fadeIn);
+            mReserve2.setAlpha(1);
 
         } else {
-            mRestRating.setVisibility(View.VISIBLE);
-            mRatingNumber.setVisibility(View.VISIBLE);
-            mTotalComment.setVisibility(View.VISIBLE);
-            mAppbarTitle.setVisibility(View.GONE);
+            mReserveLayout.clearAnimation();
+            mReserveLayout.startAnimation(fadeIn);
+            mReserveLayout.setAlpha(1);
+            mReserve2.clearAnimation();
+            mReserve2.startAnimation(fadeOut);
+            mReserve2.setAlpha(0);
+            mAppbarTitle.clearAnimation();
+            mAppbarTitle.startAnimation(fadeOut);
+            mAppbarTitle.setAlpha(0);
             mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_back));
-            mReserveLayout.setBackgroundColor(getResources().getColor(R.color.white));
-            mToolbarDetail.setBackgroundColor(getResources().getColor(R.color.white_transparent));
         }
     }
 }

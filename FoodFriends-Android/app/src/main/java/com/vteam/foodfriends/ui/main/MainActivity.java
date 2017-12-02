@@ -20,7 +20,8 @@ import com.vteam.foodfriends.utils.ScreenManager;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity implements MainContract.View, View.OnClickListener {
+public class MainActivity extends BaseActivity implements MainContract.View, View.OnClickListener, SearchView.OnQueryTextListener{
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.space)
     SpaceNavigationView mSpaceNavigationView;
     @BindView(R.id.search_view)
@@ -34,6 +35,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
 
     @Override
     public void init() {
+        searchView.setOnQueryTextListener(this);
         ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.rl_content);
         spaceNavigationView();
         searchViewConfig();
@@ -87,6 +89,17 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
 
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Log.e(LOG_TAG, "QuerySubmit: " + query);
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
     }
 
     @Override

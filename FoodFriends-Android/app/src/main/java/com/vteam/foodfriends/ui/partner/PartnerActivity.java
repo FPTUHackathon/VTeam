@@ -14,10 +14,14 @@ import android.widget.SearchView;
 import android.widget.Toolbar;
 
 import com.vteam.foodfriends.R;
+import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.ui.base.BaseActivity;
 import com.vteam.foodfriends.ui.main.MainContract;
 
-public class PartnerActivity extends BaseActivity implements PartnerContract.View, View.OnClickListener{
+import java.util.ArrayList;
+import java.util.List;
+
+public class PartnerActivity extends BaseActivity implements PartnerContract.View, View.OnClickListener {
     private PartnerContract.Presenter mPresenter;
     private ViewPager pager;
     private TabLayout tabLayout;
@@ -33,11 +37,12 @@ public class PartnerActivity extends BaseActivity implements PartnerContract.Vie
         addControl();
     }
 
+
     private void addControl() {
         pager = findViewById(R.id.pager);
         tabLayout = findViewById(R.id.tab);
         android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-        PagerAdapter adapter = new com.vteam.foodfriends.ui.adapter.PagerAdapter(this,manager);
+        PagerAdapter adapter = new com.vteam.foodfriends.ui.adapter.PagerAdapter(this, manager);
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -50,7 +55,6 @@ public class PartnerActivity extends BaseActivity implements PartnerContract.Vie
     }
 
     @Override
-    public void setPresenter(MainContract.Presenter presenter) {
-
+    public void setPresenter(PartnerContract.Presenter presenter) {
     }
 }
