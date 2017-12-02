@@ -8,9 +8,9 @@ target 'Food Friends' do
   # Pods for Food Friends
 
 pod 'Firebase/Auth'
-pod 'ReadMoreTextView'
+pod 'pop', '~> 1.0'
 pod 'SkyFloatingLabelTextField', '~> 3.0'
-
+pod "ESTabBarController-swift"
 
 
 end

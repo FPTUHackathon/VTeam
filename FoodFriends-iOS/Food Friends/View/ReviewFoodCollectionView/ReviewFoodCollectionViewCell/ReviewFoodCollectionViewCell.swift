@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReadMoreTextView
 
 class ReviewFoodCollectionViewCell: UICollectionViewCell {
 

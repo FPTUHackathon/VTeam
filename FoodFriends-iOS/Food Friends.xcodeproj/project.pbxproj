@@ -11,6 +11,13 @@
 		04047E781FD201AB008276A0 /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04047E761FD201AB008276A0 /* FavouriteTableViewCell.xib */; };
 		04047E7C1FD237D7008276A0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E7A1FD237D7008276A0 /* ChatViewController.swift */; };
 		04047E7D1FD237D7008276A0 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04047E7B1FD237D7008276A0 /* ChatViewController.xib */; };
+		04047E861FD284A2008276A0 /* ExampleIrregularityContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E851FD28067008276A0 /* ExampleIrregularityContentView.swift */; };
+		04047E871FD284A5008276A0 /* ExampleAnimateTipsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E801FD28067008276A0 /* ExampleAnimateTipsContentView.swift */; };
+		04047E881FD284A7008276A0 /* ExampleBasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E841FD28067008276A0 /* ExampleBasicContentView.swift */; };
+		04047E891FD284A9008276A0 /* ExampleBackgroundContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E821FD28067008276A0 /* ExampleBackgroundContentView.swift */; };
+		04047E8A1FD284AC008276A0 /* ExampleBouncesContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E7F1FD28067008276A0 /* ExampleBouncesContentView.swift */; };
+		04047E8B1FD284AF008276A0 /* ExampleHighlightableContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E831FD28067008276A0 /* ExampleHighlightableContentView.swift */; };
+		04047E8C1FD284B4008276A0 /* ExampleTipsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04047E811FD28067008276A0 /* ExampleTipsContentView.swift */; };
 		04141CF61FD0601A006654A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04141CF51FD0601A006654A4 /* AppDelegate.swift */; };
 		04141CFB1FD0601A006654A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04141CF91FD0601A006654A4 /* Main.storyboard */; };
 		04141CFE1FD0601A006654A4 /* Food_Friends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04141CFC1FD0601A006654A4 /* Food_Friends.xcdatamodeld */; };
@@ -26,6 +33,10 @@
 		04141D221FD06E76006654A4 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04141D201FD06E76006654A4 /* FavouriteViewController.xib */; };
 		0453A0D01FD10F6B00E9F4E1 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453A0CE1FD10F6B00E9F4E1 /* HomeTableViewCell.swift */; };
 		0453A0D11FD10F6B00E9F4E1 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0453A0CF1FD10F6B00E9F4E1 /* HomeTableViewCell.xib */; };
+		04B2B76C1FD28ECC00CD6AB6 /* StartMessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2B76A1FD28ECC00CD6AB6 /* StartMessTableViewCell.swift */; };
+		04B2B76D1FD28ECC00CD6AB6 /* StartMessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2B76B1FD28ECC00CD6AB6 /* StartMessTableViewCell.xib */; };
+		04B2B7711FD2902700CD6AB6 /* DesMessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2B76F1FD2902700CD6AB6 /* DesMessTableViewCell.swift */; };
+		04B2B7721FD2902700CD6AB6 /* DesMessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2B7701FD2902700CD6AB6 /* DesMessTableViewCell.xib */; };
 		04CC108D1FD1BAD3001C9753 /* MapFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC108B1FD1BAD3001C9753 /* MapFoodDetailViewController.swift */; };
 		04CC108E1FD1BAD3001C9753 /* MapFoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CC108C1FD1BAD3001C9753 /* MapFoodDetailViewController.xib */; };
 		04CC10921FD1BF22001C9753 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC10901FD1BF22001C9753 /* LogInViewController.swift */; };
@@ -44,6 +55,13 @@
 		04047E761FD201AB008276A0 /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
 		04047E7A1FD237D7008276A0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		04047E7B1FD237D7008276A0 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		04047E7F1FD28067008276A0 /* ExampleBouncesContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBouncesContentView.swift; sourceTree = "<group>"; };
+		04047E801FD28067008276A0 /* ExampleAnimateTipsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAnimateTipsContentView.swift; sourceTree = "<group>"; };
+		04047E811FD28067008276A0 /* ExampleTipsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTipsContentView.swift; sourceTree = "<group>"; };
+		04047E821FD28067008276A0 /* ExampleBackgroundContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBackgroundContentView.swift; sourceTree = "<group>"; };
+		04047E831FD28067008276A0 /* ExampleHighlightableContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleHighlightableContentView.swift; sourceTree = "<group>"; };
+		04047E841FD28067008276A0 /* ExampleBasicContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBasicContentView.swift; sourceTree = "<group>"; };
+		04047E851FD28067008276A0 /* ExampleIrregularityContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleIrregularityContentView.swift; sourceTree = "<group>"; };
 		04141CF21FD0601A006654A4 /* Food Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04141CF51FD0601A006654A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04141CFA1FD0601A006654A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +89,10 @@
 		0453A0DA1FD1121100E9F4E1 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		0453A0DB1FD1121100E9F4E1 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		0453A0DC1FD1121100E9F4E1 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		04B2B76A1FD28ECC00CD6AB6 /* StartMessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMessTableViewCell.swift; sourceTree = "<group>"; };
+		04B2B76B1FD28ECC00CD6AB6 /* StartMessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartMessTableViewCell.xib; sourceTree = "<group>"; };
+		04B2B76F1FD2902700CD6AB6 /* DesMessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesMessTableViewCell.swift; sourceTree = "<group>"; };
+		04B2B7701FD2902700CD6AB6 /* DesMessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesMessTableViewCell.xib; sourceTree = "<group>"; };
 		04CC108B1FD1BAD3001C9753 /* MapFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFoodDetailViewController.swift; sourceTree = "<group>"; };
 		04CC108C1FD1BAD3001C9753 /* MapFoodDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapFoodDetailViewController.xib; sourceTree = "<group>"; };
 		04CC10901FD1BF22001C9753 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +136,20 @@
 				04047E7B1FD237D7008276A0 /* ChatViewController.xib */,
 			);
 			path = chat;
+			sourceTree = "<group>";
+		};
+		04047E7E1FD28023008276A0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				04047E801FD28067008276A0 /* ExampleAnimateTipsContentView.swift */,
+				04047E821FD28067008276A0 /* ExampleBackgroundContentView.swift */,
+				04047E841FD28067008276A0 /* ExampleBasicContentView.swift */,
+				04047E7F1FD28067008276A0 /* ExampleBouncesContentView.swift */,
+				04047E831FD28067008276A0 /* ExampleHighlightableContentView.swift */,
+				04047E851FD28067008276A0 /* ExampleIrregularityContentView.swift */,
+				04047E811FD28067008276A0 /* ExampleTipsContentView.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		04141CE91FD0601A006654A4 = {
@@ -176,6 +212,7 @@
 		04141D0C1FD06541006654A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04B2B7681FD28E8E00CD6AB6 /* ChatViewCell */,
 				04047E741FD20180008276A0 /* FavouriteTableViewCell */,
 				04DF74071FD13E11007C7A87 /* ReviewFoodCollectionView */,
 				0453A0CD1FD10F2D00E9F4E1 /* HomeTableViewCell */,
@@ -194,6 +231,7 @@
 		04141D101FD0673E006654A4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04047E7E1FD28023008276A0 /* Sources */,
 				04141D111FD06785006654A4 /* ColorExtensions.swift */,
 			);
 			path = Utils;
@@ -252,6 +290,33 @@
 				0453A0DB1FD1121100E9F4E1 /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04B2B7681FD28E8E00CD6AB6 /* ChatViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04B2B76E1FD28F7500CD6AB6 /* DesMessTableViewCell */,
+				04B2B7691FD28E9900CD6AB6 /* StartMessTableViewCell */,
+			);
+			path = ChatViewCell;
+			sourceTree = "<group>";
+		};
+		04B2B7691FD28E9900CD6AB6 /* StartMessTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04B2B76A1FD28ECC00CD6AB6 /* StartMessTableViewCell.swift */,
+				04B2B76B1FD28ECC00CD6AB6 /* StartMessTableViewCell.xib */,
+			);
+			path = StartMessTableViewCell;
+			sourceTree = "<group>";
+		};
+		04B2B76E1FD28F7500CD6AB6 /* DesMessTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04B2B76F1FD2902700CD6AB6 /* DesMessTableViewCell.swift */,
+				04B2B7701FD2902700CD6AB6 /* DesMessTableViewCell.xib */,
+			);
+			path = DesMessTableViewCell;
 			sourceTree = "<group>";
 		};
 		04CC108A1FD1BA7D001C9753 /* MapFoodDetailViewController */ = {
@@ -378,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B2B7721FD2902700CD6AB6 /* DesMessTableViewCell.xib in Resources */,
 				04141D221FD06E76006654A4 /* FavouriteViewController.xib in Resources */,
 				04047E781FD201AB008276A0 /* FavouriteTableViewCell.xib in Resources */,
 				04047E7D1FD237D7008276A0 /* ChatViewController.xib in Resources */,
@@ -392,6 +458,7 @@
 				04141CFB1FD0601A006654A4 /* Main.storyboard in Resources */,
 				04141D181FD06D6C006654A4 /* MainViewController.xib in Resources */,
 				04DF74061FD12305007C7A87 /* FoodDetailViewController.xib in Resources */,
+				04B2B76D1FD28ECC00CD6AB6 /* StartMessTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,19 +490,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Food Friends/Pods-Food Friends-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/ReadMoreTextView/ReadMoreTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReadMoreTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -466,19 +535,28 @@
 			files = (
 				04CC108D1FD1BAD3001C9753 /* MapFoodDetailViewController.swift in Sources */,
 				04DF74051FD12305007C7A87 /* FoodDetailViewController.swift in Sources */,
+				04047E881FD284A7008276A0 /* ExampleBasicContentView.swift in Sources */,
 				04141D121FD06785006654A4 /* ColorExtensions.swift in Sources */,
+				04047E891FD284A9008276A0 /* ExampleBackgroundContentView.swift in Sources */,
 				04141CFE1FD0601A006654A4 /* Food_Friends.xcdatamodeld in Sources */,
+				04047E861FD284A2008276A0 /* ExampleIrregularityContentView.swift in Sources */,
 				04141CF61FD0601A006654A4 /* AppDelegate.swift in Sources */,
+				04047E871FD284A5008276A0 /* ExampleAnimateTipsContentView.swift in Sources */,
 				04141D0F1FD0660C006654A4 /* Constant.swift in Sources */,
 				04CC10921FD1BF22001C9753 /* LogInViewController.swift in Sources */,
 				04DF740D1FD13E6C007C7A87 /* ReviewFoodCollectionViewCell.swift in Sources */,
 				04141D211FD06E76006654A4 /* FavouriteViewController.swift in Sources */,
 				04DF74091FD13E3B007C7A87 /* ReviewFoodCollectionView.swift in Sources */,
+				04047E8B1FD284AF008276A0 /* ExampleHighlightableContentView.swift in Sources */,
+				04B2B76C1FD28ECC00CD6AB6 /* StartMessTableViewCell.swift in Sources */,
 				04141D171FD06D6C006654A4 /* MainViewController.swift in Sources */,
 				04047E771FD201AB008276A0 /* FavouriteTableViewCell.swift in Sources */,
 				0453A0D01FD10F6B00E9F4E1 /* HomeTableViewCell.swift in Sources */,
 				04047E7C1FD237D7008276A0 /* ChatViewController.swift in Sources */,
+				04B2B7711FD2902700CD6AB6 /* DesMessTableViewCell.swift in Sources */,
+				04047E8C1FD284B4008276A0 /* ExampleTipsContentView.swift in Sources */,
 				04141D1C1FD06DD5006654A4 /* HomeViewController.swift in Sources */,
+				04047E8A1FD284AC008276A0 /* ExampleBouncesContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
