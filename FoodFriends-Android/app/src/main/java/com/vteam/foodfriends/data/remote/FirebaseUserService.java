@@ -47,6 +47,10 @@ public class FirebaseUserService {
         return db.collection("users").whereEqualTo(uid,true).get();
     }
 
+    public void insertUser(User user){
+
+    }
+
     public void logOut(){
         mAuth.signOut();
     }

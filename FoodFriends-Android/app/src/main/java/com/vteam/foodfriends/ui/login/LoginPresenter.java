@@ -22,6 +22,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.User;
+import com.vteam.foodfriends.data.preferences.AppPreferences;
 import com.vteam.foodfriends.data.remote.FirebaseUserService;
 import com.vteam.foodfriends.ui.main.MainActivity;
 
@@ -35,6 +36,7 @@ public class LoginPresenter implements LoginContract.Presenter{
     private FirebaseAuth mAuth;
     private Context mContext;
     private FirebaseUserService mFirebaseUserService;
+    private AppPreferences mPreferences;
     String id;
 
     public LoginPresenter(Context context, LoginContract.View view, FirebaseUserService mFirebaseUserService){
@@ -43,6 +45,7 @@ public class LoginPresenter implements LoginContract.Presenter{
         mView.setPresenter(this);
         mAuth = FirebaseAuth.getInstance();
         this.mFirebaseUserService = mFirebaseUserService;
+        mPreferences = new AppPreferences(mContext);
     }
 
     @Override
@@ -58,7 +61,8 @@ public class LoginPresenter implements LoginContract.Presenter{
     @Override
     public void login(String username, String password) {
         mView.showLoadingIndicator(mContext.getString(R.string.sign_in));
-        mAuth.signInWithEmailAndPassword(username, password)
+
+        mFirebaseUserService.signInWithEmail(username, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

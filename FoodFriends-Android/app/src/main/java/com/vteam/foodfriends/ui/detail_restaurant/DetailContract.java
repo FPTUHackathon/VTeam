@@ -17,10 +17,12 @@ import java.util.List;
 public class DetailContract {
     public interface Presenter extends BasePresenter{
         void getRestDetail(Intent i);
+        void getResBeforeComment();
     }
 
     public interface View extends BaseView<Presenter>{
         void showComment(List<Comment> comments);
         void showRestDetail(Restaurant restaurant);
+        void openWriteComment(Restaurant restaurant);
     }
 }

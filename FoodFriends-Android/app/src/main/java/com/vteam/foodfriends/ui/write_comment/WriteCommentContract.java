@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class WriteCommentContract {
     public interface Presenter extends BasePresenter{
-        void writeComment(String resId, List<Map<String, Object>> list, String title, String content, long rating, User user);
+        void writeComment(String resId, List<Map<String, Object>> list, String title, String content, long rating);
     }
 
     public interface View extends BaseView<Presenter>{

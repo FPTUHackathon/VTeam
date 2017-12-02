@@ -19,6 +19,7 @@ import java.util.Map;
 public class DetailPresent implements DetailContract.Presenter {
     private DetailContract.View mView;
     private Context mContext;
+    private Restaurant mRes;
 
     public DetailPresent(Context context, DetailContract.View view) {
         this.mContext = context;
@@ -39,6 +40,7 @@ public class DetailPresent implements DetailContract.Presenter {
     @Override
     public void getRestDetail(Intent i) {
         Restaurant restaurant = (Restaurant) i.getSerializableExtra(Constant.EXTRA_RESTAURANT);
+        mRes = restaurant;
         List<Map<String, Object>> list = restaurant.getComments();
         List<Comment>  comments = new ArrayList<>();
         for (Map<String, Object> m : list){
@@ -54,6 +56,11 @@ public class DetailPresent implements DetailContract.Presenter {
         mView.showRestDetail(restaurant);
 
         mView.showComment(comments);
+    }
+
+    @Override
+    public void getResBeforeComment() {
+        mView.openWriteComment(mRes);
     }
 
 

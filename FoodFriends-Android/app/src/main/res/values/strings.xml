@@ -3,14 +3,14 @@
 
 
     <!--Login-->
-    <string name="login_title">LOGIN</string>
-    <string name="register_title">REGISTER</string>
-    <string name="forgot_password_title">Forgot your account?</string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="register_title">Đăng kí</string>
+    <string name="forgot_password_title">Quên mật khẩu?</string>
     <string name="email_title">   Email</string>
     <string name="password_title">   Password</string>
-    <string name="sign_in">Signing In</string>
+    <string name="sign_in">Đang đăng nhập</string>
     <string name="error_login_title">Error</string>
-    <string name="error_login_message">Can\'t login, try again</string>
+    <string name="error_login_message">Không thể đăng nhập, thử lại sau</string>
     <string name="restaurant_title">Restaurant</string>
     <string name="comment">Comment</string>
 
@@ -23,6 +23,8 @@
     <string name="phone_requirement">Please enter your phone number</string>
     <string name="cancel">CANCEL</string>
     <string name="sign_up">Signing Up</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
 
     <!--Intro-->
     <string name="intro_title_example">Example</string>

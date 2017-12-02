@@ -3,6 +3,7 @@ package com.vteam.foodfriends.data.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.vteam.foodfriends.data.model.User;
 import com.vteam.foodfriends.utils.Constant;
 
 /**
@@ -27,5 +28,25 @@ public class AppPreferences {
 
     public boolean isFirstTimeLaunch(){
         return mPref.getBoolean(Constant.PREF_FIRST_LAUNCH, true);
+    }
+
+    public void setUser(User user){
+        mEditor.putString(Constant.PREF_USER_EMAIL, user.getEmail());
+        mEditor.putString(Constant.PREF_USER_NAME, user.getName());
+        mEditor.putString(Constant.PREF_USER_PHONE, user.getPhone());
+        mEditor.putString(Constant.PREF_USER_DOB, user.getDob());
+        mEditor.putString(Constant.PREF_USER_AVATAR, user.getAvatar());
+        mEditor.putBoolean(Constant.PREF_USER_GENDER, user.isMale());
+        mEditor.commit();
+    }
+
+    public User getCurrentUser(){
+        String email = mPref.getString(Constant.PREF_USER_EMAIL, null);
+        String name = mPref.getString(Constant.PREF_USER_NAME, null);
+        String phone = mPref.getString(Constant.PREF_USER_PHONE, null);
+        String dob = mPref.getString(Constant.PREF_USER_DOB, null);
+        String avatar = mPref.getString(Constant.PREF_USER_AVATAR, null);
+        boolean isMale = mPref.getBoolean(Constant.PREF_USER_GENDER, true);
+        return new User(email, name, phone, dob, avatar, isMale);
     }
 }

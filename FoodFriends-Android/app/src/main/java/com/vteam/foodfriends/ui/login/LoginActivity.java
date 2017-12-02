@@ -42,8 +42,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
     TextView mForgotPassword;
     @BindView(R.id.login_screen)
     RelativeLayout mLoginScreen;
-    FirebaseUser firebaseuser;
-    String uid;
 
     @Override
     public int getContentView() {

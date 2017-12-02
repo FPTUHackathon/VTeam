@@ -1,14 +1,20 @@
 package com.vteam.foodfriends.ui.write_comment;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.vteam.foodfriends.R;
+import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.ui.base.BaseActivity;
+import com.vteam.foodfriends.utils.Constant;
 
 import butterknife.BindView;
 
@@ -26,8 +32,11 @@ public class WriteCommentActivity extends BaseActivity implements WriteCommentCo
     TextInputEditText mTitle;
     @BindView(R.id.edt_content)
     TextInputEditText mContent;
+    @BindView(R.id.rating)
+    RatingBar mRating;
 
     private WriteCommentContract.Presenter mPresenter;
+    private Restaurant mRestaurant;
 
     @Override
     public int getContentView() {
@@ -36,6 +45,12 @@ public class WriteCommentActivity extends BaseActivity implements WriteCommentCo
 
     @Override
     public void init() {
+        Intent intent = getIntent();
+        mRestaurant = (Restaurant) intent.getSerializableExtra(Constant.EXTRA_RESTAURANT);
+
+        mName.setText(mRestaurant.getName());
+        mLocation.setText(mRestaurant.getAddress());
+        mPresenter = new WriteCommentPresenter(this, this);
 
     }
 
@@ -49,9 +64,15 @@ public class WriteCommentActivity extends BaseActivity implements WriteCommentCo
         int id = view.getId();
         switch (id){
             case R.id.btn_cancel: {
+                finish();
                 break;
             }
             case R.id.btn_send: {
+                if (TextUtils.isEmpty(mContent.getText()) || mRating.getNumStars() <= 0){
+                    return;
+                }
+
+                mPresenter.writeComment(mRestaurant.getId(), mRestaurant.getComments(), mTitle.getText().toString(), mContent.getText().toString(), (long) mRating.getNumStars());
                 break;
             }
         }

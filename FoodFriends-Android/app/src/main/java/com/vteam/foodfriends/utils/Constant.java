@@ -7,6 +7,13 @@ package com.vteam.foodfriends.utils;
 public class Constant {
     public static final String PREF_NAME = "food_friends_preferences";
     public static final String PREF_FIRST_LAUNCH = "first_launch";
+    public static final String PREF_USER_EMAIL = "email";
+    public static final String PREF_USER_NAME = "username";
+    public static final String PREF_USER_PHONE = "phone";
+    public static final String PREF_USER_DOB = "dob";
+    public static final String PREF_USER_AVATAR = "avatar";
+    public static final String PREF_USER_GENDER = "gender";
+    public static final String PREF_USER_FOLLOWS = "follows";
 
 
     public static final String FIREBASE_PRODUCT = "products";

@@ -27,6 +27,7 @@ import com.vteam.foodfriends.data.model.Comment;
 import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.ui.adapter.CommentAdapter;
 import com.vteam.foodfriends.ui.base.BaseActivity;
+import com.vteam.foodfriends.ui.write_comment.WriteCommentActivity;
 import com.vteam.foodfriends.utils.AppUtils;
 import com.vteam.foodfriends.utils.Constant;
 
@@ -122,6 +123,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
         mCommentList.clearFocus();
 
         mUserRating.setOnRatingBarChangeListener(this);
+        mWriteComment.setOnClickListener(this);
     }
 
     @Override
@@ -157,6 +159,14 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
         mRatingNumber.setText(restaurant.getRating() + "");
         mRestRating.setRating(restaurant.getRating());
         mTotalComment.setText(restaurant.getTotalReview() + " đánh giá");
+
+    }
+
+    @Override
+    public void openWriteComment(Restaurant restaurant) {
+        Intent intent = new Intent(this, WriteCommentActivity.class);
+        intent.putExtra(Constant.EXTRA_RESTAURANT, restaurant);
+        startActivityWithAnimation(intent);
 
     }
 
@@ -261,6 +271,6 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
 
     @Override
     public void onClick(View view) {
-
+        mPresenter.getResBeforeComment();
     }
 }
