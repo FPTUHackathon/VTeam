@@ -2,6 +2,7 @@ package com.vteam.foodfriends.ui.home;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
 
@@ -35,6 +36,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Res
     @BindView(R.id.newfeed)
     RecyclerView mNewfeed;
     List<Restaurant> mRestaurantList;
+    @BindView(R.id.search_view)
+    SearchView searchView;
 
     private RestaurantAdapter mAdapter;
     private HomeContract.Presenter mPresenter;
@@ -60,10 +63,26 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Res
     @Override
     public void initData() {
         getImageRetrofit();
+        searchViewConfig();
         mAdapter = new RestaurantAdapter(getActivity());
         mPresenter = new HomePresenter(mContext, this, new FirebaseRestaurantService(mContext));
         mPresenter.fetchRestaurants();
         mAdapter.setOnItemClickListener(this);
+    }
+
+    private void searchViewConfig() {
+//        searchView.onActionViewExpanded();
+        searchView.setQueryHint("Thông tin địa điểm, dịch vụ");
+        searchView.setIconified(false);
+//        searchView.setIconifiedByDefault(false);
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                return true; // Do not close me
+            }
+        });
+        searchView.clearFocus();
+
     }
 
     private void getImageRetrofit() {

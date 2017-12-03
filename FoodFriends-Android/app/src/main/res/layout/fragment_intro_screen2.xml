@@ -14,7 +14,7 @@
             android:text="@string/intro_title_screen2"/>
         <ImageView
             style="@style/IntroImageView"
-            android:src="@drawable/logo" />
+            android:src="@drawable/intro1" />
         <TextView
             style="@style/IntroContentTextView"
             android:text="@string/intro_content_screen2"/>

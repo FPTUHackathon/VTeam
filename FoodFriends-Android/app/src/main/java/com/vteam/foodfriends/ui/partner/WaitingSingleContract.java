@@ -20,5 +20,6 @@ public class WaitingSingleContract {
 
     public interface View extends BaseView<Presenter>{
         void showPairs(List<Map<String, Object>> pairsFirebase, List<Pair> pairs);
+        void startMessageActivity(String boxId);
     }
 }

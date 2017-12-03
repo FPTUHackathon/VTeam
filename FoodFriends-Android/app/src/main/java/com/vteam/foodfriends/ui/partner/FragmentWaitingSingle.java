@@ -37,6 +37,7 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     Button mSkip;
 
     private List<Map<String, Object>> mPairs;
+    private List<Pair> list;
     private String uid;
     private String resId;
     private FragmentWaitingSingle mInstace;
@@ -88,15 +89,12 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
                 showDialog();
                 break;
             case R.id.messenger_now:
-                newActivity();
+                startMessageActivity(list.get(position).getId());
                 break;
         }
     }
 
-    private void newActivity() {
-        Intent intent = new Intent(mContext, MessengerActivity.class);
-        startActivity(intent);
-    }
+
 
     private void showDialog() {
         Dialog dialog = new Dialog(mContext);
@@ -116,7 +114,15 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     @Override
     public void showPairs(List<Map<String, Object>> pairsFirebase, List<Pair> pairs) {
         mPairs = pairsFirebase;
+        list = pairs;
         mAdapter.addAll(pairs);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void startMessageActivity(String boxId) {
+        Intent intent = new Intent(mContext, MessengerActivity.class);
+        intent.putExtra(Constant.EXTRA_BOX_ID, boxId);
+        startActivity(intent);
     }
 }

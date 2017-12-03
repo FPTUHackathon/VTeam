@@ -16,6 +16,7 @@ import com.vteam.foodfriends.ui.adapter.PagerAdapter;
 import com.vteam.foodfriends.ui.base.BaseActivity;
 import com.vteam.foodfriends.ui.home.HomeFragment;
 import com.vteam.foodfriends.ui.login.LoginContract;
+import com.vteam.foodfriends.ui.update.UpdateFragment;
 import com.vteam.foodfriends.utils.ScreenManager;
 
 import butterknife.BindView;
@@ -24,8 +25,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
         private static final String LOG_TAG = MainActivity.class.getSimpleName();
         @BindView(R.id.space)
     SpaceNavigationView mSpaceNavigationView;
-    @BindView(R.id.search_view)
-    SearchView searchView;
+
     private LoginContract.Presenter mPresenter;
 
     @Override
@@ -35,10 +35,9 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
 
     @Override
     public void init() {
-//        searchView.setOnQueryTextListener(this);
         ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.rl_content);
         spaceNavigationView();
-        searchViewConfig();
+
         mSpaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
@@ -48,14 +47,13 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
             @Override
             public void onItemClick(int itemIndex, String itemName) {
                 if (itemIndex == 0) {
-                    Log.d("item clikc", "fdsaf");
                     ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.rl_content);
                 } else if (itemIndex == 1) {
                     ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.rl_content);
                 } else if (itemIndex == 2) {
                     ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.rl_content);
                 } else if (itemIndex == 3) {
-                    ScreenManager.openFragment(getSupportFragmentManager(), new HomeFragment(), R.id.main);
+                    ScreenManager.openFragment(getSupportFragmentManager(), new UpdateFragment(), R.id.rl_content);
                 }
             }
 
@@ -67,20 +65,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
 
     }
 
-    private void searchViewConfig() {
-//        searchView.onActionViewExpanded();
-        searchView.setQueryHint("Thông tin địa điểm, dịch vụ");
-        searchView.setIconified(false);
-//        searchView.setIconifiedByDefault(false);
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                return true; // Do not close me
-            }
-        });
-        searchView.clearFocus();
 
-    }
 
     @Override
     protected void onResume() {

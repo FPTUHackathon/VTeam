@@ -42,11 +42,12 @@ public class MessengerAdapter extends BaseAdapter<TextMessage> {
     @Override
     public int getItemViewType(int position) {
         TextMessage messenger = mList.get(position);
-        if(messenger.getName()=="Me"){
-            return SELF;
-        } else{
-            return FRIEND;
-        }
+//        if(messenger.getName()=="Me"){
+//            return SELF;
+//        } else{
+//            return FRIEND;
+//        }
+        return SELF;
     }
 
     @Override
@@ -69,8 +70,8 @@ public class MessengerAdapter extends BaseAdapter<TextMessage> {
         @Override
         public void bind(TextMessage messenger, int position) {
             Glide.with(mContext).load(R.drawable.avatar).into(mAvatar);
-            mMessage.setText(messenger.getMessage());
-            mTime.setText(messenger.getTime());
+//            mMessage.setText(messenger.getMessage());
+//            mTime.setText(messenger.getTime());
         }
     }
 }

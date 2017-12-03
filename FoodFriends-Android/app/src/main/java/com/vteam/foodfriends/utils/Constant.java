@@ -44,7 +44,19 @@ public class Constant {
     public static final String FIREBASE_PENDING_PAIR_TIME = "time";
 
     public static final String FIREBASE_MESSAGE = "messages";
+    public static final String FIREBASE_MESSAGE_MESSLIST = "messList";
+    public static final String FIREBASE_MESSAGE_CONTENT = "content";
+    public static final String FIREBASE_MESSAGE_CONTENT_URL = "downloadUrl";
+    public static final String FIREBASE_MESSAGE_CONTENT_NAME = "name";
+    public static final String FIREBASE_MESSAGE_CONTENT_TYPE = "type";
+    public static final String FIREBASE_MESSAGE_FROM = "from";
+    public static final String FIREBASE_MESSAGE_FROM_AVATAR = "avatar";
+    public static final String FIREBASE_MESSAGE_FROM_ID = "id";
+    public static final String FIREBASE_MESSAGE_FROM_NAME = "name";
+    public static final String FIREBASE_MESSAGE_TIMESTAMP = "timestamp";
+    public static final String FIREBASE_MESSAGE_TYPE = "type";
 
     public static final String EXTRA_RESTAURANT = "restaurant";
     public static final String EXTRA_RESTAURANT_ID = "resId";
+    public static final String EXTRA_BOX_ID = "box_id";
 }

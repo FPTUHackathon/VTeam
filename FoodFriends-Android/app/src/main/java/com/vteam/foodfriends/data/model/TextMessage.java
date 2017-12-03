@@ -6,25 +6,29 @@ import java.sql.Timestamp;
  * Created by phuongbka on 12/2/17.
  */
 
-public class TextMessage {
-    private TextContent textContent;
+public class TextMessage<T> {
+    private T content;
     private MessageFrom messageFrom;
-    private Timestamp timestamp;
+    private long timestamp;
     private String type;
 
-    public TextMessage(TextContent textContent, MessageFrom messageFrom, Timestamp timestamp, String type) {
-        this.textContent = textContent;
+    public TextMessage(T content, MessageFrom messageFrom, String type) {
+        this.content = content;
         this.messageFrom = messageFrom;
-        this.timestamp = timestamp;
         this.type = type;
     }
 
-    public TextContent getTextContent() {
-        return textContent;
+    public TextMessage(T content, String type) {
+        this.content = content;
+        this.type = type;
     }
 
-    public void setTextContent(TextContent textContent) {
-        this.textContent = textContent;
+    public T getContent() {
+        return content;
+    }
+
+    public void setContent(T content) {
+        this.content = content;
     }
 
     public MessageFrom getMessageFrom() {
@@ -35,11 +39,11 @@ public class TextMessage {
         this.messageFrom = messageFrom;
     }
 
-    public Timestamp getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 

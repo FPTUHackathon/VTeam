@@ -81,7 +81,7 @@ public class WaitingSinglePresenter implements WaitingSingleContract.Presenter {
                                     dob,
                                     isMale
                             );
-                            Pair pair = new Pair(time, user);
+                            Pair pair = new Pair(documentSnapshot.getId(), time, user);
                             list.add(pair);
 
                         }
