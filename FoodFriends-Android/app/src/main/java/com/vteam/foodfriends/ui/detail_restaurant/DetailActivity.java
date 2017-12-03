@@ -24,9 +24,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Comment;
+import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.ui.adapter.CommentAdapter;
 import com.vteam.foodfriends.ui.base.BaseActivity;
+import com.vteam.foodfriends.ui.partner.PartnerActivity;
 import com.vteam.foodfriends.ui.write_comment.WriteCommentActivity;
 import com.vteam.foodfriends.utils.AppUtils;
 import com.vteam.foodfriends.utils.Constant;
@@ -103,6 +105,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
     private CommentAdapter mCommentAdapter;
     private boolean isChoose = false;
     private boolean isMovingHalf = false;
+    private Restaurant mRestaurant;
 
     @Override
     public int getContentView() {
@@ -124,6 +127,8 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
 
         mUserRating.setOnRatingBarChangeListener(this);
         mWriteComment.setOnClickListener(this);
+        mReserve1.setOnClickListener(this);
+        mReserve2.setOnClickListener(this);
     }
 
     @Override
@@ -143,6 +148,8 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
 
     @Override
     public void showRestDetail(Restaurant restaurant) {
+
+        mRestaurant = restaurant;
 
         Glide.with(this).load(restaurant.getPhotoUrl())
                 .asBitmap()
@@ -168,6 +175,13 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
         intent.putExtra(Constant.EXTRA_RESTAURANT, restaurant);
         startActivityWithAnimation(intent);
 
+    }
+
+    @Override
+    public void startPartnerActivity() {
+        Intent intent = new Intent(this, PartnerActivity.class);
+        intent.putExtra(Constant.EXTRA_RESTAURANT_ID, mRestaurant.getId());
+        startActivityWithAnimation(intent);
     }
 
     @Override
@@ -271,6 +285,20 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
 
     @Override
     public void onClick(View view) {
-        mPresenter.getResBeforeComment();
+        int id = view.getId();
+        switch (id){
+            case R.id.btn_reserve1: {
+
+            }
+            case R.id.btn_reserve2: {
+                startPartnerActivity();
+                break;
+            }
+            case R.id.tv_write_comment: {
+                mPresenter.getResBeforeComment();
+                break;
+            }
+        }
+
     }
 }

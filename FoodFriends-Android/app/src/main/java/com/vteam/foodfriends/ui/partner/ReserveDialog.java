@@ -69,7 +69,9 @@ public class ReserveDialog extends Dialog implements View.OnClickListener{
         int id = v.getId();
         switch (id){
             case R.id.btn_ok: {
-                listener.onOkClick();
+                String time = new Date().toString();
+                listener.onOkClick(time);
+                dismiss();
                 break;
             }
             case R.id.tv_day_1: {
@@ -104,7 +106,7 @@ public class ReserveDialog extends Dialog implements View.OnClickListener{
     }
 
     public interface OnClick{
-        void onOkClick();
+        void onOkClick(String time);
     }
 
     @Override

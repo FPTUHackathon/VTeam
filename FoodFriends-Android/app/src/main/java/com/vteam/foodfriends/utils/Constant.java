@@ -38,5 +38,10 @@ public class Constant {
     public static final String FIREBASE_USER_GENDER = "gender";
     public static final String FIREBASE_USER_AVATAR = "avatar";
 
+    public static final String FIREBASE_PENDING_PAIR = "pair";
+    public static final String FIREBASE_PENDING_PAIR_USER_CREATE = "user_create";
+    public static final String FIREBASE_PENDING_PAIR_TIME = "time";
+
     public static final String EXTRA_RESTAURANT = "restaurant";
+    public static final String EXTRA_RESTAURANT_ID = "resId";
 }

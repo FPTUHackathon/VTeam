@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.vteam.foodfriends.R;
+import com.vteam.foodfriends.data.model.Pair;
 import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.ui.base.BaseAdapter;
 import com.vteam.foodfriends.ui.base.BaseViewHolder;
@@ -19,7 +20,7 @@ import com.vteam.foodfriends.ui.base.BaseViewHolder;
  * Created by phuongbka on 12/1/17.
  */
 
-public class PartnerAdapterOne extends BaseAdapter<Partner> {
+public class PartnerAdapterOne extends BaseAdapter<Pair> {
     private OnItemClickListener onItemClickListener;
     View view;
 
@@ -33,7 +34,7 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
     }
 
     @Override
-    public BaseViewHolder<Partner> onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder<Pair> onCreateViewHolder(ViewGroup parent, int viewType) {
         view = LayoutInflater.from(mContext).inflate(getContentView(), parent, false);
         return new PartnerViewHolder(view);
     }
@@ -43,13 +44,13 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder<Partner> holder, int position) {
+    public void onBindViewHolder(BaseViewHolder<Pair> holder, int position) {
         Log.d("view holder", " " + position);
-        Partner partner = mList.get(position);
-        holder.bind(partner,position);
+//        Partner partner = mList.get(position);
+        holder.bind(mList.get(position),position);
     }
 
-    public class PartnerViewHolder extends BaseViewHolder<Partner> implements View.OnClickListener  {
+    public class PartnerViewHolder extends BaseViewHolder<Pair> implements View.OnClickListener  {
         ImageView mAvatar,mMessengerNow;
         TextView mName, mAge, mTime, mDistance;
 
@@ -67,14 +68,14 @@ public class PartnerAdapterOne extends BaseAdapter<Partner> {
         }
 
         @Override
-        public void bind(Partner partner, int position) {
+        public void bind(Pair pair, int position) {
 
-            Glide.with(mContext).load(R.drawable.avatar)
-                    .into(mAvatar);
-            mName.setText(partner.getName());
-            mAge.setText(partner.getAge());
-            mTime.setText(partner.getTime());
-            mDistance.setText(partner.getDistance());
+//            Glide.with(mContext).load(R.drawable.avatar)
+//                    .into(mAvatar);
+//            mName.setText(partner.getName());
+//            mAge.setText(partner.getAge());
+//            mTime.setText(partner.getTime());
+//            mDistance.setText(partner.getDistance());
         }
 
         @Override

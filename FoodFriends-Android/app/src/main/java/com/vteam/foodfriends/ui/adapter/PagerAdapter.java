@@ -2,6 +2,7 @@ package com.vteam.foodfriends.ui.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +15,7 @@ import android.text.style.ImageSpan;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.ui.partner.FragmentWaitingSingle;
 import com.vteam.foodfriends.ui.partner.FragmentWaitingGroup;
+import com.vteam.foodfriends.utils.Constant;
 
 /**
  * Created by H2PhySicS on 11/29/2017.
@@ -22,22 +24,32 @@ import com.vteam.foodfriends.ui.partner.FragmentWaitingGroup;
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private Context mContext;
     private Drawable mDrawable;
+    private String resId;
 
-    public PagerAdapter(Context context,FragmentManager fm) {
+    public PagerAdapter(Context context,FragmentManager fm, String resId) {
         super(fm);
         this.mContext = context;
+        this.resId = resId;
     }
 
     @Override
     public Fragment getItem(int position) {
         Fragment frag = null;
+        Bundle bundle = new Bundle();
+        bundle.putString(Constant.EXTRA_RESTAURANT_ID, resId);
         switch (position) {
-            case 0:
+            case 0:{
                 frag = new FragmentWaitingSingle();
+                frag.setArguments(bundle);
                 break;
-            case 1:
+            }
+
+            case 1:{
                 frag = new FragmentWaitingGroup();
+                frag.setArguments(bundle);
                 break;
+            }
+
         }
         return frag;
     }

@@ -1,5 +1,6 @@
 package com.vteam.foodfriends.ui.partner;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,7 @@ import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.ui.base.BaseActivity;
 import com.vteam.foodfriends.ui.main.MainContract;
+import com.vteam.foodfriends.utils.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +43,12 @@ public class PartnerActivity extends BaseActivity implements PartnerContract.Vie
     private void addControl() {
         pager = findViewById(R.id.pager);
         tabLayout = findViewById(R.id.tab);
+
+        Intent intent = getIntent();
+        String resId = intent.getStringExtra(Constant.EXTRA_RESTAURANT_ID);
+
         android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-        PagerAdapter adapter = new com.vteam.foodfriends.ui.adapter.PagerAdapter(this, manager);
+        PagerAdapter adapter = new com.vteam.foodfriends.ui.adapter.PagerAdapter(this, manager, resId);
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

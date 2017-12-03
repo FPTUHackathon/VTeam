@@ -24,5 +24,6 @@ public class DetailContract {
         void showComment(List<Comment> comments);
         void showRestDetail(Restaurant restaurant);
         void openWriteComment(Restaurant restaurant);
+        void startPartnerActivity();
     }
 }
