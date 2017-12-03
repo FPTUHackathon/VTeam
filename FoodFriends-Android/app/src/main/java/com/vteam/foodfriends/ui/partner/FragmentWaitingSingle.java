@@ -74,8 +74,11 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     public void onClick(View view) {
         ReserveDialog reserveDialog = new ReserveDialog(mContext, new ReserveDialog.OnClick() {
             @Override
-            public void onOkClick(String time) {
-                mPresenter.createPair(resId, mPairs, time);
+            public void onOkClick(String time, boolean isSingle) {
+                if (isSingle){
+                    mPresenter.createPair(resId, mPairs, time);
+                }
+
             }
         });
         reserveDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -115,6 +118,7 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     public void showPairs(List<Map<String, Object>> pairsFirebase, List<Pair> pairs) {
         mPairs = pairsFirebase;
         list = pairs;
+        mAdapter.clear();
         mAdapter.addAll(pairs);
         mRecyclerView.setAdapter(mAdapter);
     }

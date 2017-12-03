@@ -38,12 +38,18 @@ public class Constant {
     public static final String FIREBASE_USER_DOB = "dob";
     public static final String FIREBASE_USER_GENDER = "gender";
     public static final String FIREBASE_USER_AVATAR = "avatar";
+    public static final String FIREBASE_USER_FOLLOWS = "follows";
 
+    public static final String FIREBASE_PENDING = "pendings";
     public static final String FIREBASE_PENDING_PAIR = "pair";
     public static final String FIREBASE_PENDING_PAIR_USER_CREATE = "user_create";
     public static final String FIREBASE_PENDING_PAIR_TIME = "time";
 
     public static final String FIREBASE_MESSAGE = "messages";
+    public static final String FIREBASE_MESSAGE_USER_CREATE = "user_create";
+    public static final String FIREBASE_MESSAGE_CAN_JOIN = "can_join";
+    public static final String FIREBASE_MESSAGE_TYPE_ROOM = "type";
+    public static final String FIREBASE_MESSAGE_JOINING_USERS = "joining_users";
     public static final String FIREBASE_MESSAGE_MESSLIST = "messList";
     public static final String FIREBASE_MESSAGE_CONTENT = "content";
     public static final String FIREBASE_MESSAGE_CONTENT_URL = "downloadUrl";

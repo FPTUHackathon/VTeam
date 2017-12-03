@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.InputFilter;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.ui.custom_view.TimeTextView;
 import com.vteam.foodfriends.utils.AppUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -69,8 +72,20 @@ public class ReserveDialog extends Dialog implements View.OnClickListener{
         int id = v.getId();
         switch (id){
             case R.id.btn_ok: {
-                String time = new Date().toString();
-                listener.onOkClick(time);
+                if (TextUtils.isEmpty(mHour.getText()) || TextUtils.isEmpty(mMinute.getText())) return;
+                String time = dates[index];
+                int hour = Integer.parseInt(mHour.getText().toString());
+                int minute = Integer.parseInt(mMinute.getText().toString());
+                try {
+                    Date date = AppUtils.convertStringToDate(time);
+                    date.setHours(hour);
+                    date.setMinutes(minute);
+
+                    listener.onOkClick(AppUtils.convertDateToString(date), isSingle);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 dismiss();
                 break;
             }
@@ -106,7 +121,7 @@ public class ReserveDialog extends Dialog implements View.OnClickListener{
     }
 
     public interface OnClick{
-        void onOkClick(String time);
+        void onOkClick(String time, boolean isSingle);
     }
 
     @Override
@@ -136,11 +151,25 @@ public class ReserveDialog extends Dialog implements View.OnClickListener{
         mMinute.setText(dateSplit[1]);
 
         dates = AppUtils.getDates(5);
-        mDay1.setText(AppUtils.getDayOfDate(dates[0]));
-        mDay2.setText(AppUtils.getDayOfDate(dates[1]));
-        mDay3.setText(AppUtils.getDayOfDate(dates[2]));
-        mDay4.setText(AppUtils.getDayOfDate(dates[3]));
-        mDay5.setText(AppUtils.getDayOfDate(dates[4]));
+
+
+        Date[] convertedDates = new Date[5];
+        try{
+            for (int i = 0; i < dates.length; i++){
+                convertedDates[i] = AppUtils.convertStringToDate(dates[i]);
+
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+        mDay1.setText(AppUtils.getDayOfDate(convertedDates[0]));
+        mDay2.setText(AppUtils.getDayOfDate(convertedDates[1]));
+        mDay3.setText(AppUtils.getDayOfDate(convertedDates[2]));
+        mDay4.setText(AppUtils.getDayOfDate(convertedDates[3]));
+        mDay5.setText(AppUtils.getDayOfDate(convertedDates[4]));
 
         setTypeReserve(isSingle);
         setSelectedDay(0);
@@ -197,9 +226,11 @@ public class ReserveDialog extends Dialog implements View.OnClickListener{
 
     private void setTypeReserve(boolean isSingle){
         if (isSingle){
-
+            mSingle.setImageDrawable(mContext.getDrawable(R.drawable.pair_active));
+            mGroup.setImageDrawable(mContext.getDrawable(R.drawable.group_inactive));
         } else {
-
+            mSingle.setImageDrawable(mContext.getDrawable(R.drawable.pair_inactive));
+            mGroup.setImageDrawable(mContext.getDrawable(R.drawable.group_active));
         }
     }
 }

@@ -61,7 +61,7 @@ public class RestaurantAdapter extends BaseAdapter<Restaurant> {
 
         @Override
         public void bind(Restaurant restaurant, int position) {
-//            Glide.with(mContext).load(restaurant.getPhotoUrl()).into(imgRestaurant);
+            Glide.with(mContext).load(restaurant.getPhotoUrl()).into(imgRestaurant);
             txtDiscount.setText(restaurant.getDiscounts()[1] + "%");
             txtAddress.setText(restaurant.getAddress());
             txtName.setText(restaurant.getName());

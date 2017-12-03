@@ -3,6 +3,7 @@ package com.vteam.foodfriends.data.remote;
 import android.content.Context;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.vteam.foodfriends.data.model.Comment;
@@ -52,5 +53,10 @@ public class FirebaseRestaurantService {
         mDatabase.collection(Constant.FIREBASE_PRODUCT)
                 .document(resId)
                 .update(map);
+    }
+
+    public DocumentReference getDocReferToWriteComment(String resId){
+        return mDatabase.collection(Constant.FIREBASE_PRODUCT)
+                .document(resId);
     }
 }

@@ -38,25 +38,26 @@ public class TestActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void init() {
-//        mHour.setFilters(new InputFilter[]{new InputFilterMinMax("0", "23")});
-//        mMinute.setFilters(new InputFilter[]{new InputFilterMinMax("0", "59")});
-//        Log.e("TestActivity", AppUtils.getCurrentTime());
-//        mOk.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ReserveDialog mDialog = new ReserveDialog(TestActivity.this, new ReserveDialog.OnClick() {
-//                    @Override
-//                    public void onOkClick() {
-//
-//                    }
-//                });
-//                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                mDialog.show();
-//            }
-//        });
+        mHour.setFilters(new InputFilter[]{new InputFilterMinMax("0", "23")});
+        mMinute.setFilters(new InputFilter[]{new InputFilterMinMax("0", "59")});
+        Log.e("TestActivity", AppUtils.getCurrentTime());
+        mOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReserveDialog mDialog = new ReserveDialog(TestActivity.this, new ReserveDialog.OnClick() {
 
-//        mDay1.setSelectedItem();
-//        mDay1.setOnClickListener(this);
+                    @Override
+                    public void onOkClick(String time, boolean isSingle) {
+
+                    }
+                });
+                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                mDialog.show();
+            }
+        });
+
+        mDay1.setSelectedItem();
+        mDay1.setOnClickListener(this);
     }
 
     @Override

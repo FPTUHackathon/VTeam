@@ -62,7 +62,8 @@ public class FirebaseUserService {
         mapUserDetail.put(Constant.FIREBASE_USER_PHONE, user.getPhone());
         mapUserDetail.put(Constant.FIREBASE_USER_DOB, user.getDob());
         mapUserDetail.put(Constant.FIREBASE_USER_GENDER, user.isMale());
-
+        mapUserDetail.put(Constant.FIREBASE_USER_AVATAR, user.getAvatar());
+//        mapUserDetail.put(Constant.FIREBASE_USER_FOLLOWS, user.getFollows());
 
         db.collection("users")
                 .add(mapUserDetail)

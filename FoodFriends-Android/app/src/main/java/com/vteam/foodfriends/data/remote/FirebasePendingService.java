@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.vteam.foodfriends.data.model.User;
@@ -27,7 +28,7 @@ public class FirebasePendingService {
         db = FirebaseFirestore.getInstance();
     }
 
-    public void createPair(String resId, List<Map<String, Object>> pairedList, User user, String createTime){
+    public Task<Void> createPair(String resId, List<Map<String, Object>> pairedList, User user, String createTime){
         Map<String, Object> paired = new HashMap<>();
         Map<String, Object> newPair = new HashMap<>();
         Map<String, Object> userCreateMap = new HashMap<>();
@@ -41,7 +42,7 @@ public class FirebasePendingService {
         newPair.put(Constant.FIREBASE_PENDING_PAIR_TIME, createTime);
         pairedList.add(newPair);
         paired.put(Constant.FIREBASE_PENDING_PAIR, pairedList);
-        db.collection("pendings")
+        return db.collection(Constant.FIREBASE_PENDING)
                 .document(resId)
                 .set(paired);
 
@@ -55,9 +56,10 @@ public class FirebasePendingService {
 //
 //    }
 
-    public Task<DocumentSnapshot> getPairs(String resId){
-        return db.collection("pendings")
-                .document(resId)
-                .get();
+    public DocumentReference getDocReferencesToPair(String resId){
+        return db.collection(Constant.FIREBASE_PENDING).document(resId);
     }
+
+
+
 }

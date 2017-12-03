@@ -1,11 +1,8 @@
 package com.vteam.foodfriends.ui.detail_restaurant;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
@@ -24,7 +21,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Comment;
-import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.data.model.Restaurant;
 import com.vteam.foodfriends.ui.adapter.CommentAdapter;
 import com.vteam.foodfriends.ui.base.BaseActivity;
@@ -33,9 +29,6 @@ import com.vteam.foodfriends.ui.write_comment.WriteCommentActivity;
 import com.vteam.foodfriends.utils.AppUtils;
 import com.vteam.foodfriends.utils.Constant;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -114,7 +107,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
 
     @Override
     public void init() {
-        mPresenter = new DetailPresent(this, this);
+        mPresenter = new DetailPresenter(this, this);
         mCommentAdapter = new CommentAdapter(this);
         screenSize = getScreenSize();
         optimizeGallery();
@@ -139,6 +132,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View,
     @Override
     public void showComment(List<Comment> comments) {
         if (comments.size() > 0){
+            mCommentAdapter.clear();
             mCommentAdapter.addAll(comments);
             mCommentList.setAdapter(mCommentAdapter);
         } else {
