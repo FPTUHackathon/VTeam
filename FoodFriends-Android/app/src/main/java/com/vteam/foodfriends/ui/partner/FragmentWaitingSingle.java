@@ -15,10 +15,9 @@ import com.vteam.foodfriends.data.model.Pair;
 import com.vteam.foodfriends.data.model.Partner;
 import com.vteam.foodfriends.ui.adapter.PartnerAdapterOne;
 import com.vteam.foodfriends.ui.base.BaseFragment;
-import com.vteam.foodfriends.ui.messenger.MessengerActivity2;
+import com.vteam.foodfriends.ui.messenger.MessengerActivity;
 import com.vteam.foodfriends.utils.Constant;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +36,7 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     @BindView(R.id.btn_skip)
     Button mSkip;
 
-    private List<Map<String, String>> mPairs;
+    private List<Map<String, Object>> mPairs;
     private String uid;
     private String resId;
     private FragmentWaitingSingle mInstace;
@@ -65,12 +64,9 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
         mPresenter = new WaitingSinglePresenter(mContext, this);
         Bundle bundle = getArguments();
         resId = bundle.getString(Constant.EXTRA_RESTAURANT_ID);
-        mPairs = new ArrayList<>();
-
-//        mAdapter.addAll(mPairs);
-//        mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClick(this);
         mSkip.setOnClickListener(this);
+        mPresenter.getPairs(resId);
     }
 
     @Override
@@ -98,7 +94,7 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     }
 
     private void newActivity() {
-        Intent intent = new Intent(mContext, MessengerActivity2.class);
+        Intent intent = new Intent(mContext, MessengerActivity.class);
         startActivity(intent);
     }
 
@@ -115,5 +111,12 @@ public class FragmentWaitingSingle extends BaseFragment implements WaitingSingle
     @Override
     public void setPresenter(WaitingSingleContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @Override
+    public void showPairs(List<Map<String, Object>> pairsFirebase, List<Pair> pairs) {
+        mPairs = pairsFirebase;
+        mAdapter.addAll(pairs);
+        mRecyclerView.setAdapter(mAdapter);
     }
 }

@@ -1,15 +1,10 @@
 package com.vteam.foodfriends.ui.messenger;
 
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.vteam.foodfriends.R;
-import com.vteam.foodfriends.data.model.Messenger;
+import com.vteam.foodfriends.data.model.TextMessage;
 import com.vteam.foodfriends.ui.adapter.MessengerAdapter;
 import com.vteam.foodfriends.ui.base.BaseFragment;
 
@@ -24,7 +19,7 @@ import butterknife.BindView;
 public class MessengerActivity2Fragment extends BaseFragment implements MessengerContract.View {
 
     private MessengerContract.Presenter mPresenter;
-    private List<Messenger> mMessengerList;
+    private List<TextMessage> mMessengerList;
     private MessengerAdapter mAdapter;
     @BindView(R.id.rv_message)
     RecyclerView mRecyclerView;
@@ -38,7 +33,7 @@ public class MessengerActivity2Fragment extends BaseFragment implements Messenge
 
     @Override
     public int getContentLayout() {
-        return R.layout.fragment_messenger2;
+        return R.layout.fragment_messenger;
     }
 
     @Override
@@ -50,17 +45,17 @@ public class MessengerActivity2Fragment extends BaseFragment implements Messenge
     public void initData() {
         mMessengerList = new ArrayList<>();
         for(int i = 0;i<15;i++){
-            Messenger messenger = new Messenger();
-            if(i%2==0){
-                messenger.setName("Me");
-                messenger.setMessage("Hello how are you? I'm find thank you");
-                messenger.setTime("11:30");
-            } else{
-                messenger.setName("Friend");
-                messenger.setMessage("Yup, I'm Ok");
-                messenger.setTime("11:30");
-            }
-            mMessengerList.add(messenger);
+//            TextMessage messenger = new TextMessage();
+//            if(i%2==0){
+//                messenger.setName("Me");
+//                messenger.setMessage("Hello how are you? I'm find thank you");
+//                messenger.setTime("11:30");
+//            } else{
+//                messenger.setName("Friend");
+//                messenger.setMessage("Yup, I'm Ok");
+//                messenger.setTime("11:30");
+//            }
+//            mMessengerList.add(messenger);
         }
         mAdapter.addAll(mMessengerList);
         mRecyclerView.setAdapter(mAdapter);

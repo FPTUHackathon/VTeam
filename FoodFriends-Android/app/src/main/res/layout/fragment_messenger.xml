@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.vteam.foodfriends.ui.messenger.MessengerActivity2Fragment"
-    tools:showIn="@layout/activity_messenger2">
+    tools:showIn="@layout/activity_messenger">
     <RelativeLayout
         android:id="@+id/rl_middle"
         android:layout_width="match_parent"

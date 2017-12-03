@@ -13,8 +13,10 @@ import com.bumptech.glide.Glide;
 import com.vteam.foodfriends.R;
 import com.vteam.foodfriends.data.model.Pair;
 import com.vteam.foodfriends.data.model.Partner;
+import com.vteam.foodfriends.data.model.User;
 import com.vteam.foodfriends.ui.base.BaseAdapter;
 import com.vteam.foodfriends.ui.base.BaseViewHolder;
+import com.vteam.foodfriends.utils.AppUtils;
 
 /**
  * Created by phuongbka on 12/1/17.
@@ -51,7 +53,7 @@ public class PartnerAdapterOne extends BaseAdapter<Pair> {
     }
 
     public class PartnerViewHolder extends BaseViewHolder<Pair> implements View.OnClickListener  {
-        ImageView mAvatar,mMessengerNow;
+        ImageView mAvatar,mMessengerNow, mGender;
         TextView mName, mAge, mTime, mDistance;
 
         public PartnerViewHolder(View itemView) {
@@ -62,6 +64,7 @@ public class PartnerAdapterOne extends BaseAdapter<Pair> {
             mTime = itemView.findViewById(R.id.tv_time_single);
             mDistance = itemView.findViewById(R.id.tv_distance_single);
             mMessengerNow = itemView.findViewById(R.id.messenger_now);
+            mGender = itemView.findViewById(R.id.male);
             itemView.getRootView().setOnClickListener(this);
             mMessengerNow.setOnClickListener(this);
             mAvatar.setOnClickListener(this);
@@ -69,13 +72,25 @@ public class PartnerAdapterOne extends BaseAdapter<Pair> {
 
         @Override
         public void bind(Pair pair, int position) {
+            String time = pair.getTime();
+            User user = pair.getUser();
+            if (user.getAvatar() == null){
+//                Glide.with(mContext).load()
+            } else {
+                Glide.with(mContext).load(user.getAvatar()).into(mAvatar);
+            }
+            if (user.isMale()){
+                Glide.with(mContext)
+                        .load(R.drawable.male_orange).into(mGender);
+            } else {
+                Glide.with(mContext)
+                        .load(R.drawable.female_orange).into(mGender);
+            }
+            mName.setText(user.getName());
+            mAge.setText(AppUtils.getAge(user.getDob()) + "");
+            mTime.setText(time);
 
-//            Glide.with(mContext).load(R.drawable.avatar)
-//                    .into(mAvatar);
-//            mName.setText(partner.getName());
-//            mAge.setText(partner.getAge());
-//            mTime.setText(partner.getTime());
-//            mDistance.setText(partner.getDistance());
+
         }
 
         @Override

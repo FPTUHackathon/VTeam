@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 public class User {
-    private String email, password, name, phone, dob, avatar;
+    private String id, email, password, name, phone, dob, avatar;
     private boolean isMale;
     private List<String> follows;
 
@@ -38,6 +38,23 @@ public class User {
         this.phone = phone;
         this.dob = dob;
         this.isMale = isMale;
+    }
+
+    public User(String id, String email, String name, String phone, String dob, boolean isMale) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.dob = dob;
+        this.isMale = isMale;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {

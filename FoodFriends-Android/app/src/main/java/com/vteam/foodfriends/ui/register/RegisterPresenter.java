@@ -51,7 +51,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                     public void onSuccess(AuthResult authResult) {
 
                         FirebaseUser firebaseUser = mDatabase.getCurrentFirebaseUser();
-                        User user = new User(email, username, phone, dob, isMale);
+                        User user = new User(firebaseUser.getUid(), email, username, phone, dob, isMale);
                         mDatabase.insertUser(firebaseUser, user);
                         mPreferences.setUser(user);
                         mView.startToHome();

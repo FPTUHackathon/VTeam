@@ -11,12 +11,12 @@
         android:orientation="vertical">
         <TextView
             style="@style/IntroTitleTextView"
-            android:text="@string/intro_title_example"/>
+            android:text="@string/intro_title_screen2"/>
         <ImageView
             style="@style/IntroImageView"
             android:src="@drawable/logo" />
         <TextView
             style="@style/IntroContentTextView"
-            android:text="@string/intro_content_example"/>
+            android:text="@string/intro_content_screen2"/>
     </LinearLayout>
 </RelativeLayout>

@@ -5,19 +5,12 @@ package com.vteam.foodfriends.data.model;
  */
 
 public class Pair {
-    private String uid, time;
+    private String time;
+    private User user;
 
-    public Pair(String uid, String time) {
-        this.uid = uid;
+    public Pair(String time, User user) {
         this.time = time;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
+        this.user = user;
     }
 
     public String getTime() {
@@ -26,5 +19,13 @@ public class Pair {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

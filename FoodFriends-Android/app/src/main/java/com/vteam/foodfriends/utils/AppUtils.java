@@ -50,4 +50,9 @@ public class AppUtils {
 
         return isOpen;
     }
+
+    public static int getAge(String birdthday){
+        int age = 0;
+        return age;
+    }
 }

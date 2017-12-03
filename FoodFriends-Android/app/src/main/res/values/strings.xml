@@ -28,7 +28,15 @@
 
     <!--Intro-->
     <string name="intro_title_example">Example</string>
+    <string name="intro_title_screen1">Kết nối</string>
+    <string name="intro_title_screen2">Tương tác</string>
+    <string name="intro_title_screen3">Ẩm thực</string>
+
     <string name="intro_content_example">It\'s so hot</string>
+    <string name="intro_content_screen1">Tính năng Tìm kiếm Bạn Bè</string>
+    <string name="intro_content_screen2">Nhắn tin cùng nhau</string>
+    <string name="intro_content_screen3">Chọn quán ăn phù hợp</string>
+
     <string name="next">NEXT</string>
     <string name="got_it">GOT IT</string>
     <string name="skip">SKIP</string>

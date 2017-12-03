@@ -82,7 +82,7 @@ public class LoginPresenter implements LoginContract.Presenter{
                                                 String dob = documentSnapshot.getString(Constant.FIREBASE_USER_DOB);
                                                 String phone = documentSnapshot.getString(Constant.FIREBASE_USER_PHONE);
                                                 boolean isMale = documentSnapshot.getBoolean(Constant.FIREBASE_USER_GENDER);
-                                                User user = new User(firebaseUser.getEmail(), name, phone, dob, isMale);
+                                                User user = new User(firebaseUser.getUid(), firebaseUser.getEmail(), name, phone, dob, isMale);
                                                 mPreferences.setUser(user);
                                                 mView.loginSuccess();
                                             }

@@ -14,8 +14,10 @@ import com.vteam.foodfriends.data.remote.api.Client;
 import com.vteam.foodfriends.data.remote.api.GetAllImage;
 import com.vteam.foodfriends.ui.adapter.RestaurantAdapter;
 import com.vteam.foodfriends.ui.base.BaseFragment;
+
 import com.vteam.foodfriends.ui.detail_restaurant.DetailActivity;
 import com.vteam.foodfriends.utils.Constant;
+
 
 import java.util.ArrayList;
 import java.util.List;
